@@ -10,4 +10,5 @@ package aeropuerto_prototipo;
  */
 public class probando {
     private String si = "probandosi";
+    public String no = "segunda prueba";
 }
