@@ -1,6 +1,9 @@
 package aeropuerto_prototipo;
 
+import Usuarios.Administrador;
+import Usuarios.Pasajero;
 import static java.lang.System.exit;
+
 import java.util.Scanner;
 
 public class Aeropuerto_prototipo {
@@ -8,7 +11,7 @@ public class Aeropuerto_prototipo {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-
+        
         Administrador administrador = new Administrador("felix123", "Felix Nieto", 123);
 
         Aeropuerto_Destino destino1 = new Aeropuerto_Destino("Aeropuerto Internacional de Hong Kong", 16636, "China");
@@ -182,7 +185,7 @@ public class Aeropuerto_prototipo {
                 System.out.println("B)ESTADISTICAS POR VUELO");
                 System.out.println("C)CERRAR SESION");
                 
-                System.out.println("...");
+                System.out.print("...");
                 String opcionAdministracion = in.nextLine();
                 
                 if(opcionAdministracion.equals("A")){

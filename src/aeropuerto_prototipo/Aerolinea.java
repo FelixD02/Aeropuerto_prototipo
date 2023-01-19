@@ -1,46 +1,46 @@
 package aeropuerto_prototipo;
 
+import java.util.ArrayList;
+
 public class Aerolinea {
 
     private String nombre;
-    private Vuelo[] vuelos;
+    private ArrayList<Vuelo> vuelos;
     private int cantidadAviones;
     private int cantidadVuelos;
 
     public Aerolinea(String nombre) {
         this.nombre = nombre;
-        vuelos = new Vuelo[10];
+        vuelos = new ArrayList();
         cantidadAviones = 0;
         cantidadVuelos = 0;
     }
 
     public void agregarVuelos(Vuelo vuelo) {
-        vuelos[cantidadVuelos] = vuelo;
-        cantidadVuelos++;
+        vuelos.add(vuelo);
     }
-    
-    public void imprimirVuelosPasajero(){
-        System.out.println(nombre+":");
-        for(int i=0; i<cantidadVuelos; i++){
-            vuelos[i].ImprimirVueloPasajero();
+
+    public void imprimirVuelosPasajero() {
+        System.out.println(nombre + ":");
+        for (Vuelo vuelo : vuelos) {
+            vuelo.ImprimirVueloPasajero();
         }
     }
-    
-    public void imprimirVuelosAdministrador(){
-        System.out.println(nombre+":");
-        for(int i=0; i<cantidadVuelos; i++){
-            vuelos[i].ImprimirVueloAdministrador();
+
+    public void imprimirVuelosAdministrador() {
+        System.out.println(nombre + ":");
+        for (Vuelo vuelo : vuelos) {
+            vuelo.ImprimirVueloAdministrador();
         }
     }
-    
-    public int totalPasajesVendidos(){
+
+    public int totalPasajesVendidos() {
         int cantidad = 0;
-        for(int i=0; i<cantidadVuelos; i++){
-            cantidad = cantidad + vuelos[i].getCantidadPasajeros();
+        for (Vuelo vuelo : vuelos) {
+            cantidad = cantidad + vuelo.getPasajeros().size();
         }
         return cantidad;
     }
-    
 
     public String getNombre() {
         return nombre;
@@ -48,14 +48,6 @@ public class Aerolinea {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Vuelo[] getVuelos() {
-        return vuelos;
-    }
-
-    public void setVuelos(Vuelo[] vuelos) {
-        this.vuelos = vuelos;
     }
 
     public int getCantidadAviones() {
@@ -72,6 +64,14 @@ public class Aerolinea {
 
     public void setCantidadVuelos(int cantidadVuelos) {
         this.cantidadVuelos = cantidadVuelos;
+    }
+
+    public ArrayList<Vuelo> getVuelos() {
+        return vuelos;
+    }
+
+    public void setVuelos(ArrayList<Vuelo> vuelos) {
+        this.vuelos = vuelos;
     }
 
 }

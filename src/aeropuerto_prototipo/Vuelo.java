@@ -1,5 +1,8 @@
 package aeropuerto_prototipo;
 
+import Usuarios.Pasajero;
+import java.util.ArrayList;
+
 public class Vuelo {
 
     private Aeropuerto_Destino aeropuertoDestino;
@@ -9,8 +12,7 @@ public class Vuelo {
     private int año;
     private String hora;
     private double precio;
-    private Pasajero[] pasajeros;
-    private int cantidadPasajeros;
+    private ArrayList<Pasajero> pasajeros;
     private int id;
 
     public Vuelo() {
@@ -26,20 +28,18 @@ public class Vuelo {
         this.hora = hora;
         this.precio = precio;
         this.id = id;
-        pasajeros = new Pasajero[avion.getCapacidad()];
-        cantidadPasajeros = 0;
+        pasajeros = new ArrayList();
 
     }
 
     public void agregarPasajeros(Pasajero pasajero) {
-        pasajeros[cantidadPasajeros] = pasajero;
-        cantidadPasajeros++;
+        pasajeros.add(pasajero);
     }
 
     public boolean consultarPasajeros(long documento) {
         boolean x = false;
-        for (int i = 0; i<cantidadPasajeros; i++) {
-            if (pasajeros[i].getDocumento() == documento) {
+        for (Pasajero pasajero : pasajeros) {
+            if (pasajero.getDocumento() == documento) {
                 x = true;
             }
         }
@@ -50,21 +50,21 @@ public class Vuelo {
         System.out.println(aeropuertoDestino.getPais() + " - " + aeropuertoDestino.getNombre());
         System.out.println(avion.getModelo());
         System.out.println(dia + "/" + mes + "/" + año + "   Hora: " + hora);
-        System.out.println("Precio: $"+precio);
+        System.out.println("Precio: $" + precio);
         System.out.println("ID " + id);
         System.out.println();
     }
-    
-    public void ImprimirVueloAdministrador(){
-        System.out.println("Pais Destino: "+aeropuertoDestino.getPais());
-        System.out.println("Modelo del Avion: "+avion.getModelo());
-        System.out.println("Fecha: "+dia + "/" + mes + "/" + año);
-        System.out.println("Hora de Abordaje: "+hora);
-        System.out.println("Pasajes Vendidos: "+cantidadPasajeros);
-        System.out.println("Pasajes Disponibles a la venta: "+(avion.getCapacidad()-cantidadPasajeros));
-        System.out.println("Precio: $"+precio);
-        System.out.println("Ganancias: $"+(cantidadPasajeros*precio));
-        
+
+    public void ImprimirVueloAdministrador() {
+        System.out.println("Pais Destino: " + aeropuertoDestino.getPais());
+        System.out.println("Modelo del Avion: " + avion.getModelo());
+        System.out.println("Fecha: " + dia + "/" + mes + "/" + año);
+        System.out.println("Hora de Abordaje: " + hora);
+        System.out.println("Pasajes Vendidos: " + pasajeros.size());
+        System.out.println("Pasajes Disponibles a la venta: " + (avion.getCapacidad() - pasajeros.size()));
+        System.out.println("Precio: $" + precio);
+        System.out.println("Ganancias: $" + (pasajeros.size() * precio));
+
     }
 
     public Aeropuerto_Destino getAeropuertoDestino() {
@@ -89,22 +89,6 @@ public class Vuelo {
 
     public void setPrecio(double precio) {
         this.precio = precio;
-    }
-
-    public Pasajero[] getPasajeros() {
-        return pasajeros;
-    }
-
-    public void setPasajeros(Pasajero[] pasajeros) {
-        this.pasajeros = pasajeros;
-    }
-
-    public int getCantidadPasajeros() {
-        return cantidadPasajeros;
-    }
-
-    public void setCantidadPasajeros(int cantidadPasajeros) {
-        this.cantidadPasajeros = cantidadPasajeros;
     }
 
     public String getDia() {
@@ -145,6 +129,14 @@ public class Vuelo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public ArrayList<Pasajero> getPasajeros() {
+        return pasajeros;
+    }
+
+    public void setPasajeros(ArrayList<Pasajero> pasajeros) {
+        this.pasajeros = pasajeros;
     }
 
 }

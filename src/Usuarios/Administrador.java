@@ -1,4 +1,4 @@
-package aeropuerto_prototipo;
+package Usuarios;
 
 public class Administrador extends Persona {
 
