@@ -11,7 +11,7 @@ public class Aeropuerto_prototipo {
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
-        
+
         Administrador administrador = new Administrador("felix123", "Felix Nieto", 123);
 
         Aeropuerto_Destino destino1 = new Aeropuerto_Destino("Aeropuerto Internacional de Hong Kong", 16636, "China");
@@ -62,9 +62,8 @@ public class Aeropuerto_prototipo {
         Pasajero pasajero9 = new Pasajero(20, "Colombiana", "Femenino", "Maria", 20945);
         Pasajero pasajero10 = new Pasajero(20, "Venezolana", "Femenino", "Johana", 98762);
         Pasajero pasajero11 = new Pasajero(37, "Panameño", "Masculino", "Felipe", 11109);
-        Pasajero pasajero12 = new Pasajero (37, "Argentino", "Masculino", "Carlos", 13842);
-        Pasajero pasajero13 = new Pasajero(65, "Colombiana", "Femenino", "Rosa", 66473); 
-        
+        Pasajero pasajero12 = new Pasajero(37, "Argentino", "Masculino", "Carlos", 13842);
+        Pasajero pasajero13 = new Pasajero(65, "Colombiana", "Femenino", "Rosa", 66473);
 
         vuelo1.agregarPasajeros(pasajero1);
         vuelo1.agregarPasajeros(pasajero2);
@@ -98,6 +97,7 @@ public class Aeropuerto_prototipo {
 
                 System.out.println("1) COMPRAR ");
                 System.out.println("2) CONSULTAR ");
+                System.out.println("3) CANCELAR");
 
                 System.out.print("...");
                 int opcion = in.nextInt();
@@ -144,6 +144,15 @@ public class Aeropuerto_prototipo {
                     aeropuerto.consultarVuelo(documento).ImprimirVueloPasajero();
                 }
 
+                if (opcion == 3) {
+                    System.out.print("INGRESE SU DOCUMENTO DE IDENTIDAD: ");
+                    long documento = in.nextLong();
+
+                    System.out.println();
+                    aeropuerto.consultarVuelo(documento).ImprimirVueloPasajero();
+                    aeropuerto.consultarVuelo(documento).cancelarPasaje(documento);
+                }
+
                 break;
 
             case 2:
@@ -180,30 +189,30 @@ public class Aeropuerto_prototipo {
                 System.out.println();
 
                 aeropuerto.imprimirVuelosPasajero();
-                
+
                 System.out.println("A)ESTADISTICAS POR GENERALES");
                 System.out.println("B)ESTADISTICAS POR VUELO");
                 System.out.println("C)CERRAR SESION");
-                
+
                 System.out.print("...");
                 String opcionAdministracion = in.nextLine();
-                
-                if(opcionAdministracion.equals("A")){
+
+                if (opcionAdministracion.equals("A")) {
                     aeropuerto.imprimirAdministrado();
                 }
-                
-                if(opcionAdministracion.equals("B")){
+
+                if (opcionAdministracion.equals("B")) {
                     System.out.println("Digite el ID del vuelo que desea consultar: ");
                     int idConsulta = in.nextInt();
-                    
+
                     System.out.println();
                     System.out.println("DETALLES DEL VUELO");
                     System.out.println();
-                    
+
                     aeropuerto.seleccionarVuelo(idConsulta).ImprimirVueloAdministrador();
                 }
-                
-                if(opcionAdministracion.equals("C")){
+
+                if (opcionAdministracion.equals("C")) {
                     System.out.println("**SISTEMA CERRADO**");
                     exit(0);
                 }

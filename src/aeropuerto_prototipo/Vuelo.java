@@ -45,7 +45,16 @@ public class Vuelo {
         }
         return x;
     }
-
+    
+    public void cancelarPasaje(Long documento){
+        for(Pasajero pasajero : pasajeros){
+            if(pasajero.getDocumento()==documento){
+                pasajeros.remove(pasajero);
+                System.out.println("**SU PASAJE HA SIDO CANCELADO**");
+            }
+        }
+    }
+    
     public void ImprimirVueloPasajero() {
         System.out.println(aeropuertoDestino.getPais() + " - " + aeropuertoDestino.getNombre());
         System.out.println(avion.getModelo());
