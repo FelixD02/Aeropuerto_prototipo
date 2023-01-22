@@ -28,7 +28,7 @@ public class Aeropuerto {
         }
         return x;
     }
-
+    
     public Vuelo consultarVuelo(long documento) {
         Vuelo y  = new Vuelo();
         for(Aerolinea aerolinea : aerolineas){

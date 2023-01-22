@@ -19,7 +19,7 @@ public class Aerolinea {
     public void agregarVuelos(Vuelo vuelo) {
         vuelos.add(vuelo);
     }
-
+    
     public void imprimirVuelosPasajero() {
         System.out.println(nombre + ":");
         for (Vuelo vuelo : vuelos) {

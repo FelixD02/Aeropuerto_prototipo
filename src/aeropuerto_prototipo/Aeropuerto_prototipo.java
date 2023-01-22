@@ -50,35 +50,16 @@ public class Aeropuerto_prototipo {
         aeropuerto.agregarAerolineas(aerolinea1);
         aeropuerto.agregarAerolineas(aerolinea2);
         aeropuerto.agregarAerolineas(aerolinea3);
-
-        Pasajero pasajero1 = new Pasajero(18, "Venezolano", "Masculino", "Jimmy", 12345);
-        Pasajero pasajero2 = new Pasajero(23, "Colombiana", "Femenino", "Gabriela", 56789);
-        Pasajero pasajero3 = new Pasajero(43, "Argentina", "Femenino", "Sandra", 29938);
-        Pasajero pasajero4 = new Pasajero(55, "Mexicano", "Maculino", "Gustavo", 48249);
-        Pasajero pasajero5 = new Pasajero(65, "Mexicano", "Masculino", "Matheo", 28374);
-        Pasajero pasajero6 = new Pasajero(18, "Colombiano", "Masculino", "Felix", 38428);
-        Pasajero pasajero7 = new Pasajero(66, "Panameño", "Masculino", "Javier", 78245);
-        Pasajero pasajero8 = new Pasajero(20, "Mexicano", "Masculino", "Juan", 62804);
-        Pasajero pasajero9 = new Pasajero(20, "Colombiana", "Femenino", "Maria", 20945);
-        Pasajero pasajero10 = new Pasajero(20, "Venezolana", "Femenino", "Johana", 98762);
-        Pasajero pasajero11 = new Pasajero(37, "Panameño", "Masculino", "Felipe", 11109);
-        Pasajero pasajero12 = new Pasajero(37, "Argentino", "Masculino", "Carlos", 13842);
-        Pasajero pasajero13 = new Pasajero(65, "Colombiana", "Femenino", "Rosa", 66473);
-
-        vuelo1.agregarPasajeros(pasajero1);
-        vuelo1.agregarPasajeros(pasajero2);
-        vuelo2.agregarPasajeros(pasajero3);
-        vuelo2.agregarPasajeros(pasajero4);
-        vuelo2.agregarPasajeros(pasajero5);
-        vuelo3.agregarPasajeros(pasajero6);
-        vuelo3.agregarPasajeros(pasajero7);
-        vuelo3.agregarPasajeros(pasajero8);
-        vuelo3.agregarPasajeros(pasajero9);
-        vuelo4.agregarPasajeros(pasajero10);
-        vuelo5.agregarPasajeros(pasajero11);
-        vuelo5.agregarPasajeros(pasajero12);
-        vuelo6.agregarPasajeros(pasajero13);
-
+ 
+        LecturaEscritura pasajerosTxt = new LecturaEscritura();
+        vuelo1.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo1.txt"));
+        vuelo2.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo2.txt"));
+        vuelo3.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo3.txt"));
+        vuelo4.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo4.txt"));
+        vuelo5.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo5.txt"));
+        vuelo6.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo6.txt"));
+        
+        
         System.out.println("**SISTEMA DE COMPRA Y ADMINISTRACION DE BOLETOS DE UN AEROPUERTO**");
         System.out.println();
 
@@ -211,7 +192,7 @@ public class Aeropuerto_prototipo {
 
                     aeropuerto.seleccionarVuelo(idConsulta).ImprimirVueloAdministrador();
                 }
-
+                
                 if (opcionAdministracion.equals("C")) {
                     System.out.println("**SISTEMA CERRADO**");
                     exit(0);

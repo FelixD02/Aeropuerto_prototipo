@@ -75,6 +75,12 @@ public class Vuelo {
         System.out.println("Ganancias: $" + (pasajeros.size() * precio));
 
     }
+    
+    public void MostrarListaPasajeros(){
+        for(Pasajero pasajero : pasajeros){
+            System.out.println("#" + (pasajeros.indexOf(pasajero)+1) + "   Nombre: " + pasajero.getNombre() + "  Edad: " + pasajero.getEdad() + "  Nacionalidad: " + pasajero.getNacionalidad() + "  Sexo: " + pasajero.getSexo() + "  Documento: " + pasajero.getDocumento());
+        }
+    }
 
     public Aeropuerto_Destino getAeropuertoDestino() {
         return aeropuertoDestino;
