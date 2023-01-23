@@ -50,15 +50,28 @@ public class Aeropuerto_prototipo {
         aeropuerto.agregarAerolineas(aerolinea1);
         aeropuerto.agregarAerolineas(aerolinea2);
         aeropuerto.agregarAerolineas(aerolinea3);
- 
+
         LecturaEscritura pasajerosTxt = new LecturaEscritura();
-        vuelo1.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo1.txt"));
-        vuelo2.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo2.txt"));
-        vuelo3.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo3.txt"));
-        vuelo4.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo4.txt"));
-        vuelo5.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo5.txt"));
-        vuelo6.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo6.txt"));
+        vuelo1.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo2456.txt"));
+        vuelo2.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo3485.txt"));
+        vuelo3.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo7985.txt"));
+        vuelo4.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo1954.txt"));
+        vuelo5.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo6832.txt"));
+        vuelo6.setPasajeros(pasajerosTxt.lecturaPasajeros("PasajerosVuelo5743.txt"));
         
+        /*vuelo1.MostrarListaPasajeros(); 
+        System.out.println("\n\n");
+        vuelo2.MostrarListaPasajeros(); 
+        System.out.println("\n\n");
+        vuelo3.MostrarListaPasajeros(); 
+        System.out.println("\n\n");
+        vuelo4.MostrarListaPasajeros(); 
+        System.out.println("\n\n");
+        vuelo5.MostrarListaPasajeros(); 
+        System.out.println("\n\n");
+        vuelo6.MostrarListaPasajeros(); 
+        System.out.println("\n\n");
+        exit(0);*/
         
         System.out.println("**SISTEMA DE COMPRA Y ADMINISTRACION DE BOLETOS DE UN AEROPUERTO**");
         System.out.println();
@@ -92,37 +105,18 @@ public class Aeropuerto_prototipo {
 
                     System.out.print("DIGITE EL ID DEL VUELO QUE DESEA COMPRAR: ");
                     int idCompra = in.nextInt();
-
-                    System.out.println("Ingrese los siguientes datos para completar la compra: ");
-                    System.out.println();
-
-                    System.out.print("Nombre: ");
-                    String nombre = in.nextLine();
                     in.nextLine();
-                    System.out.print("Documento de Identidad: ");
-                    long documento = in.nextLong();
-                    in.nextLine();
-                    System.out.print("Edad: ");
-                    int edad = in.nextInt();
-                    in.nextLine();
-                    System.out.print("Sexo: ");
-                    String sexo = in.nextLine();
-                    System.out.print("Nacionalidad: ");
-                    String nacionalidad = in.nextLine();
-                    System.out.println();
-
-                    Pasajero pasajero = new Pasajero(edad, nacionalidad, sexo, nombre, documento);
+                    
+                    Pasajero pasajero = new Pasajero();
+                    pasajero.crearPasajero();
                     aeropuerto.seleccionarVuelo(idCompra).agregarPasajeros(pasajero);
-
-                    System.out.println("COMPRA DE BOLETO COMPLETADA PARA EL VUELO: ");
-                    aeropuerto.seleccionarVuelo(idCompra).ImprimirVueloPasajero();
                 }
 
                 if (opcion == 2) {
                     System.out.print("INGRESE SU DOCUMENTO DE IDENTIDAD: ");
                     long documento = in.nextLong();
-
-                    aeropuerto.consultarVuelo(documento).ImprimirVueloPasajero();
+                    
+                    aeropuerto.consultarVuelo(documento).imprimirVueloPasajero();
                 }
 
                 if (opcion == 3) {
@@ -130,7 +124,7 @@ public class Aeropuerto_prototipo {
                     long documento = in.nextLong();
 
                     System.out.println();
-                    aeropuerto.consultarVuelo(documento).ImprimirVueloPasajero();
+                    aeropuerto.consultarVuelo(documento).imprimirVueloPasajero();
                     aeropuerto.consultarVuelo(documento).cancelarPasaje(documento);
                 }
 
@@ -192,7 +186,7 @@ public class Aeropuerto_prototipo {
 
                     aeropuerto.seleccionarVuelo(idConsulta).ImprimirVueloAdministrador();
                 }
-                
+
                 if (opcionAdministracion.equals("C")) {
                     System.out.println("**SISTEMA CERRADO**");
                     exit(0);

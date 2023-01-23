@@ -3,8 +3,10 @@ package aeropuerto_prototipo;
 
 import Usuarios.Pasajero;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class LecturaEscritura {
@@ -27,4 +29,19 @@ public class LecturaEscritura {
         }
         return pasajeros;
     }
+    
+    public void actualizarPasajeros(ArrayList<Pasajero> arraylist, int id){
+        BufferedWriter writer;
+        try{
+            writer = new BufferedWriter(new FileWriter(new File("C:\\Users\\FELIX\\Downloads\\netbins\\Aeropuerto_prototipo\\src\\Archivos\\PasajerosVuelo"+id+".txt")));
+            for (Pasajero arrayPasajero : arraylist){
+                writer.write(arrayPasajero.getEdad()+";"+arrayPasajero.getNacionalidad()+";"+arrayPasajero.getSexo()+";"+arrayPasajero.getNombre()+";"+arrayPasajero.getDocumento()+ "\n");
+            }
+            writer.close();
+            
+        }catch (Exception a){
+            a.getMessage();
+        }
+    }
+    
 }

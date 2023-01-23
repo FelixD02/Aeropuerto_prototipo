@@ -14,6 +14,7 @@ public class Vuelo {
     private double precio;
     private ArrayList<Pasajero> pasajeros;
     private int id;
+    private LecturaEscritura LE;
 
     public Vuelo() {
 
@@ -29,17 +30,36 @@ public class Vuelo {
         this.precio = precio;
         this.id = id;
         pasajeros = new ArrayList();
+        LE = new LecturaEscritura();
 
     }
 
     public void agregarPasajeros(Pasajero pasajero) {
+        boolean x = true;
+        for(Pasajero pasajeroFor : pasajeros){
+            if (pasajero.getDocumento()==pasajeroFor.getDocumento()){
+                x = false;
+                System.out.println("**DOCUMENTO NO VALIDO**");
+            }
+        }
+        
+        if (x==true){
+        try{
         pasajeros.add(pasajero);
+        LE.actualizarPasajeros(pasajeros, id);
+        System.out.println("COMPRA DE BOLETO COMPLETADA PARA EL VUELO: ");
+        imprimirVueloPasajero();
+        }catch (Exception e){
+            e.getMessage();
+        }
+        }
     }
 
     public boolean consultarPasajeros(long documento) {
         boolean x = false;
         for (Pasajero pasajero : pasajeros) {
             if (pasajero.getDocumento() == documento) {
+                System.out.println("Sr/Sra: "+pasajero.getNombre());
                 x = true;
             }
         }
@@ -47,15 +67,21 @@ public class Vuelo {
     }
     
     public void cancelarPasaje(Long documento){
+        try{
         for(Pasajero pasajero : pasajeros){
             if(pasajero.getDocumento()==documento){
                 pasajeros.remove(pasajero);
+                LE.actualizarPasajeros(pasajeros, id);
+                System.out.println("Sr/Sra: "+pasajero.getNombre());
                 System.out.println("**SU PASAJE HA SIDO CANCELADO**");
             }
         }
+        }catch (Exception e){
+            e.getMessage();
+        }
     }
     
-    public void ImprimirVueloPasajero() {
+    public void imprimirVueloPasajero() {
         System.out.println(aeropuertoDestino.getPais() + " - " + aeropuertoDestino.getNombre());
         System.out.println(avion.getModelo());
         System.out.println(dia + "/" + mes + "/" + año + "   Hora: " + hora);

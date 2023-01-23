@@ -9,6 +9,10 @@ public class Persona {
         this.nombre = nombre;
         this.documento = documento;
     }
+    
+    public Persona(){
+        
+    }
 
     public String getNombre() {
         return nombre;

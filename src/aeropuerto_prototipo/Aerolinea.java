@@ -23,7 +23,7 @@ public class Aerolinea {
     public void imprimirVuelosPasajero() {
         System.out.println(nombre + ":");
         for (Vuelo vuelo : vuelos) {
-            vuelo.ImprimirVueloPasajero();
+            vuelo.imprimirVueloPasajero();
         }
     }
 
