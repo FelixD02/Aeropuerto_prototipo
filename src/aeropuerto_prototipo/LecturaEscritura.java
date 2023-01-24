@@ -15,7 +15,7 @@ public class LecturaEscritura {
         ArrayList<Pasajero> pasajeros = new ArrayList();
         BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader(new File("C:\\Users\\FELIX\\Downloads\\netbins\\Aeropuerto_prototipo\\src\\Archivos\\"+txt)));
+            reader = new BufferedReader(new FileReader(new File("src/Archivos/"+txt)));
             String line = reader.readLine();
             while(line != null){
                 String[] lineSplit = line.split(";");
@@ -33,7 +33,7 @@ public class LecturaEscritura {
     public void actualizarPasajeros(ArrayList<Pasajero> arraylist, int id){
         BufferedWriter writer;
         try{
-            writer = new BufferedWriter(new FileWriter(new File("C:\\Users\\FELIX\\Downloads\\netbins\\Aeropuerto_prototipo\\src\\Archivos\\PasajerosVuelo"+id+".txt")));
+            writer = new BufferedWriter(new FileWriter(new File("src/Archivos/PasajerosVuelo"+id+".txt")));
             for (Pasajero arrayPasajero : arraylist){
                 writer.write(arrayPasajero.getEdad()+";"+arrayPasajero.getNacionalidad()+";"+arrayPasajero.getSexo()+";"+arrayPasajero.getNombre()+";"+arrayPasajero.getDocumento()+ "\n");
             }
