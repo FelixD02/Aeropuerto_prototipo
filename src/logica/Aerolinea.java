@@ -1,4 +1,4 @@
-package aeropuerto_prototipo;
+package logica;
 
 import java.util.ArrayList;
 

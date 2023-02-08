@@ -1,12 +1,12 @@
-package aeropuerto_prototipo;
+package logica;
 
-public class Aeropuerto_Destino {
+public class Ciudad {
 
     private String nombre;
     private int distancia;
     private String pais;
 
-    public Aeropuerto_Destino(String nombre, int distancia, String pais) {
+    public Ciudad(String nombre, int distancia, String pais) {
         this.nombre = nombre;
         this.distancia = distancia;
         this.pais = pais;

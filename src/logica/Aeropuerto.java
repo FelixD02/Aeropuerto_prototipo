@@ -1,4 +1,4 @@
-package aeropuerto_prototipo;
+package logica;
 
 import java.util.ArrayList;
 
@@ -11,50 +11,49 @@ public class Aeropuerto {
     public Aeropuerto(String nombre) {
         this.nombre = nombre;
         aerolineas = new ArrayList();
+        cantidadAerolineas = 0;
     }
 
-    public void agregarAerolineas(Aerolinea aerolinea) {
+    public void registrarAerolineas(Aerolinea aerolinea) {
         aerolineas.add(aerolinea);
+        cantidadAerolineas++;
     }
 
     public Vuelo seleccionarVuelo(int id) {
-        Vuelo x = new Vuelo();
+        Vuelo v = new Vuelo();
         for (Aerolinea aerolinea : aerolineas) {
             for (Vuelo vuelo : aerolinea.getVuelos()) {
                 if (vuelo.getId() == id) {
-                    x = vuelo;
+                    v = vuelo;
                 }
             }
         }
-        return x;
+        return v;
     }
     
-    public Vuelo consultarVuelo(long documento) {
-        Vuelo y  = new Vuelo();
+    public Vuelo consultarVueloDeUnPasajero(long documento) {
+        Vuelo v  = new Vuelo();
         for(Aerolinea aerolinea : aerolineas){
             for(Vuelo vuelo : aerolinea.getVuelos()){
                 if(vuelo.consultarPasajeros(documento) == true){
-                    y = vuelo;
+                    v = vuelo;
                 }
             }
         }
-        return y;
+        return v;
     }
 
-    public void imprimirVuelosPasajero(){
+    public void consultarPasajerosDeUnVuelo(){
         for(Aerolinea aerolinea : aerolineas){
             aerolinea.imprimirVuelosPasajero();
         }
     }
 
-    public void imprimirAdministrado() {
-        aerolineaTop();
-    }
-    
-    public void aerolineaTop(){
+    public void consultarEstadisticasAeropuerto() {
         for(Aerolinea aerolinea : aerolineas){
             System.out.println("Aerolinea: " + aerolinea.getNombre() + "    Pasajes Vendidos: " + aerolinea.totalPasajesVendidos());
         }
+
     }
 
     public String getNombre() {

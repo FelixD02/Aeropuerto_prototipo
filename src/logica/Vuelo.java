@@ -1,11 +1,11 @@
-package aeropuerto_prototipo;
+package logica;
 
-import Usuarios.Pasajero;
+import persistencia.LecturaEscritura;
 import java.util.ArrayList;
 
 public class Vuelo {
 
-    private Aeropuerto_Destino aeropuertoDestino;
+    private Ciudad aeropuertoDestino;
     private Avion avion;
     private String dia;
     private String mes;
@@ -20,7 +20,7 @@ public class Vuelo {
 
     }
 
-    public Vuelo(Aeropuerto_Destino aeropuertoDestino, Avion avion, double precio, String dia, String mes, int año, String hora, int id) {
+    public Vuelo(Ciudad aeropuertoDestino, Avion avion, double precio, String dia, String mes, int año, String hora, int id) {
         this.aeropuertoDestino = aeropuertoDestino;
         this.avion = avion;
         this.dia = dia;
@@ -104,15 +104,15 @@ public class Vuelo {
     
     public void MostrarListaPasajeros(){
         for(Pasajero pasajero : pasajeros){
-            System.out.println("#" + (pasajeros.indexOf(pasajero)+1) + "   Nombre: " + pasajero.getNombre() + "  Edad: " + pasajero.getEdad() + "  Nacionalidad: " + pasajero.getNacionalidad() + "  Sexo: " + pasajero.getSexo() + "  Documento: " + pasajero.getDocumento());
+            System.out.println("#" + (pasajeros.indexOf(pasajero)+1) + "   Nombre: " + pasajero.getNombre() + "  Edad: " + pasajero.getEdad() + "  Nacionalidad: " + pasajero.getNacionalidad() + "  Sexo: " + pasajero.getGenero() + "  Documento: " + pasajero.getDocumento());
         }
     }
 
-    public Aeropuerto_Destino getAeropuertoDestino() {
+    public Ciudad getAeropuertoDestino() {
         return aeropuertoDestino;
     }
 
-    public void setAeropuertoDestino(Aeropuerto_Destino aeropuertoDestino) {
+    public void setAeropuertoDestino(Ciudad aeropuertoDestino) {
         this.aeropuertoDestino = aeropuertoDestino;
     }
 

@@ -1,4 +1,4 @@
-package aeropuerto_prototipo;
+package logica;
 
 public class Avion {
 
