@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import logica.Pasajero;
 
-public class LecturaEscritura {
+public class registro {
     
     public ArrayList<Pasajero> lecturaPasajeros(String txt){
         ArrayList<Pasajero> pasajeros = new ArrayList();

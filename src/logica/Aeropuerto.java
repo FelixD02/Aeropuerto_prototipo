@@ -14,46 +14,17 @@ public class Aeropuerto {
         cantidadAerolineas = 0;
     }
 
-    public void registrarAerolineas(Aerolinea aerolinea) {
+    public void agregarAerolineas(Aerolinea aerolinea) {
         aerolineas.add(aerolinea);
         cantidadAerolineas++;
     }
 
-    public Vuelo seleccionarVuelo(int id) {
-        Vuelo v = new Vuelo();
-        for (Aerolinea aerolinea : aerolineas) {
-            for (Vuelo vuelo : aerolinea.getVuelos()) {
-                if (vuelo.getId() == id) {
-                    v = vuelo;
-                }
-            }
+    public ArrayList listaVuelos() {
+        ArrayList vuelosAeropuerto = new ArrayList();
+        for(Aerolinea aerolinea: aerolineas){
+            vuelosAeropuerto.add(aerolinea.getVuelos());
         }
-        return v;
-    }
-    
-    public Vuelo consultarVueloDeUnPasajero(long documento) {
-        Vuelo v  = new Vuelo();
-        for(Aerolinea aerolinea : aerolineas){
-            for(Vuelo vuelo : aerolinea.getVuelos()){
-                if(vuelo.consultarPasajeros(documento) == true){
-                    v = vuelo;
-                }
-            }
-        }
-        return v;
-    }
-
-    public void consultarPasajerosDeUnVuelo(){
-        for(Aerolinea aerolinea : aerolineas){
-            aerolinea.imprimirVuelosPasajero();
-        }
-    }
-
-    public void consultarEstadisticasAeropuerto() {
-        for(Aerolinea aerolinea : aerolineas){
-            System.out.println("Aerolinea: " + aerolinea.getNombre() + "    Pasajes Vendidos: " + aerolinea.totalPasajesVendidos());
-        }
-
+        return vuelosAeropuerto;
     }
 
     public String getNombre() {

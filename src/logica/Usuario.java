@@ -1,7 +1,9 @@
 package logica;
 
-public class Usuario{
-    
+import java.util.ArrayList;
+
+public class Usuario {
+
     private String nombre;
     private long documento;
     private String contraseña;
@@ -18,6 +20,26 @@ public class Usuario{
         this.nacionalidad = nacionalidad;
         this.genero = genero;
         this.tipoCuenta = tipoCuenta;
+    }
+
+    public boolean iniciarSesion(long documento, String contraseña) {
+        return (documento == getDocumento() && contraseña.equals(getContraseña()));
+    }
+
+    public void registrarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
+        aerolinea.registrarVuelo(vuelo);
+    }
+
+    public void cancelarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
+        aerolinea.cancelarVuelo(vuelo);
+    }
+
+    public ArrayList ListaVuelosAeropuerto(Aeropuerto aeropuerto) {
+        return aeropuerto.listaVuelos();
+    }
+    
+    public String informeVuelo(Vuelo vuelo){
+        return vuelo.ConsultarVuelo();
     }
 
     public int getEdad() {
@@ -75,30 +97,5 @@ public class Usuario{
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
-    public void iniciarSesion(){
-        
-    }
-    
-    public void consultarEstadisticasAeropuerto(Aeropuerto a){
-        
-    }
-    
-    public void registrarVuelo(Vuelo v){
-        
-    }
-    
-    public void cancelarVuelo(Vuelo v){
-        
-    }
-    
-    public void comprarPasaje(Pasajero p, Vuelo v){
-        
-    }
-    
-    public void cancelarPasaje(Pasajero p, Vuelo v){
-        
-    }
-
 
 }
