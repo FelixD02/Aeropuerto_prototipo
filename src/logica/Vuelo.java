@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Vuelo {
 
-    private Ciudad destino;
+    private String destino;
     private Avion avion;
     private String dia;
     private String mes;
@@ -16,8 +16,8 @@ public class Vuelo {
     private int id;
     private final registro registroPasajeros;
 
-    public Vuelo(Ciudad aeropuertoDestino, Avion avion, double precio, String dia, String mes, int año, String hora, int id) {
-        this.destino = aeropuertoDestino;
+    public Vuelo(String destino, Avion avion, double precio, String dia, String mes, int año, String hora, int id) {
+        this.destino = destino;
         this.avion = avion;
         this.dia = dia;
         this.mes = mes;
@@ -44,13 +44,15 @@ public class Vuelo {
         return "Vuelo " + id + ",destino " + destino + ", avion " + avion + ", dia " + dia + ", mes " + mes + ", año " + año + ", hora " + hora + ", precio " + ", id " + id + ", ganancias " + pasajeros.size() * precio;
     }
 
-    public Ciudad getAeropuertoDestino() {
+    public String getDestino() {
         return destino;
     }
 
-    public void setAeropuertoDestino(Ciudad aeropuertoDestino) {
-        this.destino = aeropuertoDestino;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
+
+
 
     public Avion getAvion() {
         return avion;
