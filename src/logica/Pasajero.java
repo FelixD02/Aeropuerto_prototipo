@@ -8,7 +8,7 @@ public class Pasajero{
     private long documento;
     private String nombre;
 
-    public Pasajero(int edad, String nacionalidad, String genero, long documento, String nombre) {
+    public Pasajero(int edad, String nacionalidad, String genero, String nombre, long documento) {
         this.edad = edad;
         this.nacionalidad = nacionalidad;
         this.genero = genero;

@@ -27,7 +27,7 @@ public class Aerolinea {
     public String consultarAerolinea() {
         return "Nombre " + nombre + ", cantidad de vuelos " + cantidadVuelos;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
