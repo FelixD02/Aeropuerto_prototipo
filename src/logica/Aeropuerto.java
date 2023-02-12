@@ -65,7 +65,19 @@ public class Aeropuerto {
         destinosMasVisitados.add(top3);
         return destinosMasVisitados;
     }
-
+    
+    public Aerolinea aerolineaMasUsada(){
+        Aerolinea aerolineaMasUsada = new Aerolinea();
+        int pasajesVendidos = 0;
+        for(Aerolinea aerolinea : aerolineas){
+            if(aerolinea.totalPasajesVendidos() > pasajesVendidos ){
+                pasajesVendidos = aerolinea.totalPasajesVendidos();
+                aerolineaMasUsada = aerolinea;
+            }
+        }
+        return aerolineaMasUsada;
+    }
+    
     public String getNombre() {
         return nombre;
     }

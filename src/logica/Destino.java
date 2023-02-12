@@ -12,7 +12,7 @@ public class Destino {
         visitantes = 0;
     }
     
-    public Destino(){
+    public Destino(){ //Este constructuror está implementado para poder instanciar objetos con atributos nulos.
         this.nombre = "";
         this.distancia = 0;
         this.visitantes = 0;
