@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.*;
+import persistencia.registro;
 
 public class Aeropuerto {
 
@@ -76,6 +77,25 @@ public class Aeropuerto {
             }
         }
         return aerolineaMasUsada;
+    }
+    
+    public String pasajerosPorEdad(){
+        String  pasajerosPorEdad;
+        int menores = 0, mayores = 0;
+        for(Aerolinea aerolinea : aerolineas){
+            for(Vuelo vuelo : aerolinea.getVuelos()){
+                for(Pasajero pasajero : vuelo.getPasajeros()){
+                    if(pasajero.getEdad()<18){
+                        menores++;
+                    }
+                    if(pasajero.getEdad()>=18){
+                        mayores++;
+                    }
+                }
+            }
+        }
+        pasajerosPorEdad = "Menores: " + menores + "  Mayores: " + mayores;
+        return pasajerosPorEdad;
     }
     
     public String getNombre() {
