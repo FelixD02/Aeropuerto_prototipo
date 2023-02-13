@@ -56,9 +56,10 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         private void initContent(JPanel p) {
         p.setSize(750, 430);
         p.setLocation(0,0);
+      
         
         pnContent.removeAll();
-        pnContent.add(p, BorderLayout.CENTER);
+        pnContent.add(p,BorderLayout.CENTER);
         pnContent.revalidate();
         pnContent.repaint();
     }
@@ -90,9 +91,9 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         pnContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1020, 540));
-        setPreferredSize(new java.awt.Dimension(1020, 540));
-        setSize(new java.awt.Dimension(1020, 540));
+        setMinimumSize(new java.awt.Dimension(1030, 640));
+        setPreferredSize(new java.awt.Dimension(1030, 640));
+        setSize(new java.awt.Dimension(1030, 640));
 
         pnPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnPrincipal.setPreferredSize(new java.awt.Dimension(1020, 540));
@@ -313,18 +314,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
         pnContent.setBackground(new java.awt.Color(255, 255, 255));
         pnContent.setMinimumSize(new java.awt.Dimension(750, 430));
-        pnContent.setPreferredSize(new java.awt.Dimension(750, 430));
-
-        javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
-        pnContent.setLayout(pnContentLayout);
-        pnContentLayout.setHorizontalGroup(
-            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-        );
-        pnContentLayout.setVerticalGroup(
-            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
+        pnContent.setPreferredSize(new java.awt.Dimension(0, 0));
+        pnContent.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pnPrincipalLayout = new javax.swing.GroupLayout(pnPrincipal);
         pnPrincipal.setLayout(pnPrincipalLayout);
@@ -333,7 +324,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
             .addGroup(pnPrincipalLayout.createSequentialGroup()
                 .addComponent(pnSidebar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+                    .addComponent(pnHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
                     .addGroup(pnPrincipalLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(lbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -363,13 +354,13 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -384,6 +375,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private void btReportesAerolineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesAerolineasActionPerformed
         // TODO add your handling code here:
+        initContent(new pnReporteAerolineas());
     }//GEN-LAST:event_btReportesAerolineasActionPerformed
 
     private void btSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSignUpActionPerformed
@@ -415,10 +407,12 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private void btReportesVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesVuelosActionPerformed
         // TODO add your handling code here:
+        initContent(new pnReporteVuelos());
     }//GEN-LAST:event_btReportesVuelosActionPerformed
 
     private void btReportePasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportePasajerosActionPerformed
         // TODO add your handling code here:
+        initContent(new pnReportePasajeros());
     }//GEN-LAST:event_btReportePasajerosActionPerformed
 
     /**

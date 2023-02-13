@@ -27,7 +27,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnBackground" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -36,10 +36,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="pnBackground" max="32767" attributes="0"/>
-          </Group>
+          <Component id="pnBackground" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -67,63 +64,44 @@
                           <Component id="lbTitulo" pref="648" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lbMes" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtMes" min="-2" pref="146" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lbDia" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtDia" pref="146" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lbDestino" pref="115" max="32767" attributes="0"/>
-                                      <Component id="lbAvion" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtAvion" pref="146" max="32767" attributes="0"/>
-                                      <Component id="txtDestino" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lbID" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                              <Component id="lbPrecio" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                              <Component id="lbHora" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                              <Component id="lbAnio" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="btRegistroVuelo" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lbAerolinea" max="32767" attributes="0"/>
+                                      <Component id="lbMes" max="32767" attributes="0"/>
+                                      <Component id="lbDia" max="32767" attributes="0"/>
+                                      <Component id="lbDestino" alignment="0" pref="117" max="32767" attributes="0"/>
+                                      <Component id="lbAvion" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtAerolinea" max="32767" attributes="0"/>
+                                      <Component id="txtMes" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="txtAvion" pref="147" max="32767" attributes="0"/>
+                                      <Component id="txtDestino" max="32767" attributes="0"/>
+                                      <Component id="txtDia" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lbID" alignment="0" pref="117" max="32767" attributes="0"/>
+                                      <Component id="lbPrecio" alignment="0" pref="117" max="32767" attributes="0"/>
+                                      <Component id="lbHora" alignment="0" pref="117" max="32767" attributes="0"/>
+                                      <Component id="lbAnio" alignment="0" pref="117" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtAnio" pref="147" max="32767" attributes="0"/>
+                                      <Component id="txtHora" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPrecio" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtID" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtAnio" pref="145" max="32767" attributes="0"/>
-                              <Component id="txtHora" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtPrecio" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtID" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="170" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btRegistroVuelo" min="-2" pref="574" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                          <Component id="lbAerolinea" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtAerolinea" min="-2" pref="146" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -132,7 +110,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="lbTitulo" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -184,8 +162,8 @@
                       <Component id="txtAerolinea" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btRegistroVuelo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
+                  <Component id="btRegistroVuelo" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -279,6 +257,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAerolinea">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAerolineaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
