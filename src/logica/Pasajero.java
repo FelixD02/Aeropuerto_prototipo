@@ -3,15 +3,15 @@ package logica;
 public class Pasajero{
 
     private int edad;
-    private String nacionalidad;
-    private String genero;
+    private Nacionalidad nacionalidad;
+    private Sexo sexo;
     private long documento;
     private String nombre;
 
-    public Pasajero(int edad, String nacionalidad, String genero, String nombre, long documento) {
+    public Pasajero(int edad, Nacionalidad nacionalidad, Sexo sexo, String nombre, long documento) {
         this.edad = edad;
         this.nacionalidad = nacionalidad;
-        this.genero = genero;
+        this.sexo = sexo;
         this.documento = documento;
         this.nombre = nombre;
     }
@@ -24,22 +24,22 @@ public class Pasajero{
         this.edad = edad;
     }
 
-    public String getNacionalidad() {
+    public Nacionalidad getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setNacionalidad(String nacionalidad) {
+    public void setNacionalidad(Nacionalidad nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 
-    public String getGenero() {
-        return genero;
+    public Sexo getSexo() {
+        return sexo;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
     }
-
+    
     public long getDocumento() {
         return documento;
     }
@@ -56,7 +56,4 @@ public class Pasajero{
         this.nombre = nombre;
     }
     
-    
-    
-
 }

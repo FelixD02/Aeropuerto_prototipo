@@ -1,7 +1,6 @@
 package logica;
 
 import java.util.*;
-import persistencia.registro;
 
 public class Aeropuerto {
 
@@ -96,6 +95,44 @@ public class Aeropuerto {
         }
         pasajerosPorEdad = "Menores: " + menores + "  Mayores: " + mayores;
         return pasajerosPorEdad;
+    }
+    
+    public String pasajerosPorNacionalidad(){
+        String pasajerosPorNacionalidad;
+        int colombianos = 0, extranjeros = 0;
+        for(Aerolinea aerolinea : aerolineas){
+            for(Vuelo vuelo : aerolinea.getVuelos()){
+                for(Pasajero pasajero : vuelo.getPasajeros()){
+                    if(pasajero.getNacionalidad()==Nacionalidad.Colombiana){
+                        colombianos++;
+                    }
+                    if(pasajero.getNacionalidad()==Nacionalidad.Extranjera){
+                        extranjeros++;
+                    }
+                }
+            }
+        }
+        pasajerosPorNacionalidad = "Colombianos: " + colombianos + "  Extranjeros: " + extranjeros;
+        return pasajerosPorNacionalidad;
+    }
+    
+    public String pasajerosPorSexo(){
+        String pasajerosPorSexo;
+        int masculino=0, femenino=0;
+        for(Aerolinea aerolinea : aerolineas){
+            for(Vuelo vuelo : aerolinea.getVuelos()){
+                for(Pasajero pasajero : vuelo.getPasajeros()){
+                    if(pasajero.getSexo()==Sexo.Masculino){
+                        masculino++;
+                    }
+                    if(pasajero.getSexo()==Sexo.Femenino){
+                        femenino++;
+                    }
+                }
+            }
+        }
+        pasajerosPorSexo = "Masculinos: " + masculino + "  Femenino: " + femenino;
+        return pasajerosPorSexo;
     }
     
     public String getNombre() {
