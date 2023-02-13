@@ -1,30 +1,34 @@
 package logica;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Usuario {
 
     private String nombre;
     private long documento;
     private String contraseña;
-    private int edad;
-    private String nacionalidad;
-    private String genero;
-    private String tipoCuenta;
+    private static int cantidadUsuarios = 0;
 
-    public Usuario(String nombre, long documento, String contraseña, int edad, String nacionalidad, String genero, String tipoCuenta) {
-        this.nombre = nombre;
-        this.documento = documento;
-        this.contraseña = contraseña;
-        this.edad = edad;
-        this.nacionalidad = nacionalidad;
-        this.genero = genero;
-        this.tipoCuenta = tipoCuenta;
+    public Usuario(String nombre, long documento, String contraseña) {
+        if (cantidadUsuarios < 1){
+            this.nombre = nombre;
+            this.documento = documento;
+            this.contraseña = contraseña;
+            Usuario.cantidadUsuarios++;
+        }
+        
+        else {
+            JOptionPane.showMessageDialog(null, "No es posible la creacion de un usuario");
+        }
+
     }
 
     public boolean iniciarSesion(long documento, String contraseña) {
         return (documento == getDocumento() && contraseña.equals(getContraseña()));
     }
+    
+    
 
     public void registrarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
         aerolinea.registrarVuelo(vuelo);
@@ -42,37 +46,6 @@ public class Usuario {
         return vuelo.ConsultarVuelo();
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public String getNacionalidad() {
-        return nacionalidad;
-    }
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getTipoCuenta() {
-        return tipoCuenta;
-    }
-
-    public void setTipoCuenta(String tipoCuenta) {
-        this.tipoCuenta = tipoCuenta;
-    }
 
     public String getNombre() {
         return nombre;

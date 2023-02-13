@@ -8,7 +8,15 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.security.Principal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
@@ -22,8 +30,37 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
      */
     public vtSistemaAeoropuerto() {
         initComponents();
+        initStyles();
+        setDate();
+        initContent(new pnPrincipal());
+
+    }
+    
+    private void setDate() {
+        LocalDate now = LocalDate.now();
+        Locale spanishLocale = new Locale("es", "ES");
+        lbDate.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' yyyy", spanishLocale)));
+    }
+    
+    private void initStyles(){
+        lbBienvenida.putClientProperty( "FlatLaf.style", "font: 14 $light.font" );
+        lbBienvenida.setForeground(Color.BLACK);
+        lbNavtext.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" );
+        lbNavtext.setForeground(Color.WHITE);
+        lbDate.putClientProperty( "FlatLaf.style", "font: 24 $light.font" );
+        lbDate.setForeground(Color.WHITE);
+        lbNombrePrograma.putClientProperty( "FlatLaf.style", "font: bold $h1.regular.font" );
+        lbNombrePrograma.setForeground(Color.WHITE);
+       
+    }
+        private void initContent(JPanel p) {
+        p.setSize(750, 430);
+        p.setLocation(0,0);
         
-        
+        pnContent.removeAll();
+        pnContent.add(p, BorderLayout.CENTER);
+        pnContent.revalidate();
+        pnContent.repaint();
     }
 
     /**
@@ -33,138 +70,364 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        menus = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        header = new javax.swing.JPanel();
-        nombreproyecto = new javax.swing.JLabel();
+        pnPrincipal = new javax.swing.JPanel();
+        pnSidebar = new javax.swing.JPanel();
+        lbNombrePrograma = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        btLogin = new javax.swing.JButton();
+        btReportesAerolineas = new javax.swing.JButton();
+        btSignUp = new javax.swing.JButton();
+        btEditarVuelos = new javax.swing.JButton();
+        btPrincipal = new javax.swing.JButton();
+        btRegistrarVuelo = new javax.swing.JButton();
+        btCancelarVuelo = new javax.swing.JButton();
+        btReportesVuelos = new javax.swing.JButton();
+        btReportePasajeros = new javax.swing.JButton();
+        pnHeader = new javax.swing.JPanel();
+        lbNavtext = new javax.swing.JLabel();
+        lbDate = new javax.swing.JLabel();
+        lbBienvenida = new javax.swing.JLabel();
+        pnContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1020, 540));
+        setPreferredSize(new java.awt.Dimension(1020, 540));
+        setSize(new java.awt.Dimension(1020, 540));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        pnPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        pnPrincipal.setPreferredSize(new java.awt.Dimension(1020, 540));
 
-        menus.setBackground(new java.awt.Color(153, 153, 153));
+        pnSidebar.setBackground(new java.awt.Color(13, 71, 161));
+        pnSidebar.setPreferredSize(new java.awt.Dimension(270, 540));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setText("INICIO DE SESION");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lbNombrePrograma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbNombrePrograma.setText("Aeropuerto");
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+
+        btLogin.setBackground(new java.awt.Color(21, 101, 192));
+        btLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btLogin.setText("Login");
+        btLogin.setToolTipText("");
+        btLogin.setBorder(null);
+        btLogin.setBorderPainted(false);
+        btLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btLogin.setPreferredSize(new java.awt.Dimension(130, 17));
+        btLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btLoginActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton2.setText("REGISTRO");
-        jButton2.setToolTipText("");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btReportesAerolineas.setBackground(new java.awt.Color(21, 101, 192));
+        btReportesAerolineas.setForeground(new java.awt.Color(255, 255, 255));
+        btReportesAerolineas.setText("Reporte de Aerolineas");
+        btReportesAerolineas.setToolTipText("");
+        btReportesAerolineas.setBorder(null);
+        btReportesAerolineas.setBorderPainted(false);
+        btReportesAerolineas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportesAerolineas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btReportesAerolineasActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout menusLayout = new javax.swing.GroupLayout(menus);
-        menus.setLayout(menusLayout);
-        menusLayout.setHorizontalGroup(
-            menusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menusLayout.createSequentialGroup()
-                .addGroup(menusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menusLayout.createSequentialGroup()
-                        .addGap(389, 389, 389)
-                        .addComponent(jButton1))
-                    .addGroup(menusLayout.createSequentialGroup()
-                        .addGap(438, 438, 438)
-                        .addComponent(jButton2)))
+        btSignUp.setBackground(new java.awt.Color(21, 101, 192));
+        btSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        btSignUp.setText("Sign Up");
+        btSignUp.setToolTipText("");
+        btSignUp.setBorder(null);
+        btSignUp.setBorderPainted(false);
+        btSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btSignUp.setPreferredSize(new java.awt.Dimension(130, 17));
+        btSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSignUpActionPerformed(evt);
+            }
+        });
+
+        btEditarVuelos.setBackground(new java.awt.Color(21, 101, 192));
+        btEditarVuelos.setForeground(new java.awt.Color(255, 255, 255));
+        btEditarVuelos.setText("Editar Vuelo");
+        btEditarVuelos.setToolTipText("");
+        btEditarVuelos.setBorder(null);
+        btEditarVuelos.setBorderPainted(false);
+        btEditarVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEditarVuelos.setPreferredSize(new java.awt.Dimension(130, 17));
+        btEditarVuelos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarVuelosActionPerformed(evt);
+            }
+        });
+
+        btPrincipal.setBackground(new java.awt.Color(21, 101, 192));
+        btPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        btPrincipal.setText("Principal");
+        btPrincipal.setToolTipText("");
+        btPrincipal.setBorder(null);
+        btPrincipal.setBorderPainted(false);
+        btPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPrincipal.setPreferredSize(new java.awt.Dimension(130, 17));
+        btPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPrincipalActionPerformed(evt);
+            }
+        });
+
+        btRegistrarVuelo.setBackground(new java.awt.Color(21, 101, 192));
+        btRegistrarVuelo.setForeground(new java.awt.Color(255, 255, 255));
+        btRegistrarVuelo.setText("Registrar Vuelo");
+        btRegistrarVuelo.setToolTipText("");
+        btRegistrarVuelo.setBorder(null);
+        btRegistrarVuelo.setBorderPainted(false);
+        btRegistrarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btRegistrarVuelo.setPreferredSize(new java.awt.Dimension(130, 17));
+        btRegistrarVuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarVueloActionPerformed(evt);
+            }
+        });
+
+        btCancelarVuelo.setBackground(new java.awt.Color(21, 101, 192));
+        btCancelarVuelo.setForeground(new java.awt.Color(255, 255, 255));
+        btCancelarVuelo.setText("Cancelar Vuelo");
+        btCancelarVuelo.setToolTipText("");
+        btCancelarVuelo.setBorder(null);
+        btCancelarVuelo.setBorderPainted(false);
+        btCancelarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCancelarVuelo.setPreferredSize(new java.awt.Dimension(130, 17));
+        btCancelarVuelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarVueloActionPerformed(evt);
+            }
+        });
+
+        btReportesVuelos.setBackground(new java.awt.Color(21, 101, 192));
+        btReportesVuelos.setForeground(new java.awt.Color(255, 255, 255));
+        btReportesVuelos.setText("Reporte de Vuelos");
+        btReportesVuelos.setToolTipText("");
+        btReportesVuelos.setBorder(null);
+        btReportesVuelos.setBorderPainted(false);
+        btReportesVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportesVuelos.setPreferredSize(new java.awt.Dimension(130, 17));
+        btReportesVuelos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReportesVuelosActionPerformed(evt);
+            }
+        });
+
+        btReportePasajeros.setBackground(new java.awt.Color(21, 101, 192));
+        btReportePasajeros.setForeground(new java.awt.Color(255, 255, 255));
+        btReportePasajeros.setText("Reporte de Pasajeros");
+        btReportePasajeros.setToolTipText("");
+        btReportePasajeros.setBorder(null);
+        btReportePasajeros.setBorderPainted(false);
+        btReportePasajeros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportePasajeros.setMaximumSize(new java.awt.Dimension(130, 17));
+        btReportePasajeros.setMinimumSize(new java.awt.Dimension(130, 17));
+        btReportePasajeros.setPreferredSize(new java.awt.Dimension(130, 17));
+        btReportePasajeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReportePasajerosActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnSidebarLayout = new javax.swing.GroupLayout(pnSidebar);
+        pnSidebar.setLayout(pnSidebarLayout);
+        pnSidebarLayout.setHorizontalGroup(
+            pnSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbNombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(pnSidebarLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(btPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btRegistrarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btEditarVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btReportesVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btReportePasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btReportesAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        pnSidebarLayout.setVerticalGroup(
+            pnSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnSidebarLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(lbNombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(btPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btRegistrarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btEditarVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btReportesVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btReportePasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btReportesAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        pnHeader.setBackground(new java.awt.Color(25, 118, 210));
+        pnHeader.setPreferredSize(new java.awt.Dimension(750, 150));
+
+        lbNavtext.setText("Administración/Aeropuerto");
+
+        lbDate.setText("Hoy es {dayname} {day} de {month} de {year}");
+
+        javax.swing.GroupLayout pnHeaderLayout = new javax.swing.GroupLayout(pnHeader);
+        pnHeader.setLayout(pnHeaderLayout);
+        pnHeaderLayout.setHorizontalGroup(
+            pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnHeaderLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbNavtext, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        menusLayout.setVerticalGroup(
-            menusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menusLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jButton1)
-                .addGap(115, 115, 115)
-                .addComponent(jButton2)
-                .addContainerGap(128, Short.MAX_VALUE))
+        pnHeaderLayout.setVerticalGroup(
+            pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnHeaderLayout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(lbNavtext, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
-        header.setBackground(new java.awt.Color(25, 118, 210));
+        lbBienvenida.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        lbBienvenida.setForeground(new java.awt.Color(0, 0, 0));
+        lbBienvenida.setText("Bienvenido!");
+        lbBienvenida.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        nombreproyecto.setBackground(new java.awt.Color(255, 255, 255));
-        nombreproyecto.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        nombreproyecto.setForeground(new java.awt.Color(255, 255, 255));
-        nombreproyecto.setText("SISTEMA DE ADMINISTRACION DEL AEROPUERTO UIS");
+        pnContent.setBackground(new java.awt.Color(255, 255, 255));
+        pnContent.setMinimumSize(new java.awt.Dimension(750, 430));
+        pnContent.setPreferredSize(new java.awt.Dimension(750, 430));
 
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(nombreproyecto)
-                .addContainerGap(234, Short.MAX_VALUE))
+        javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
+        pnContent.setLayout(pnContentLayout);
+        pnContentLayout.setHorizontalGroup(
+            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(nombreproyecto)
-                .addContainerGap(48, Short.MAX_VALUE))
+        pnContentLayout.setVerticalGroup(
+            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(header, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnPrincipalLayout = new javax.swing.GroupLayout(pnPrincipal);
+        pnPrincipal.setLayout(pnPrincipalLayout);
+        pnPrincipalLayout.setHorizontalGroup(
+            pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPrincipalLayout.createSequentialGroup()
+                .addComponent(pnSidebar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+                    .addGroup(pnPrincipalLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnPrincipalLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(menus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pnPrincipalLayout.setVerticalGroup(
+            pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnPrincipalLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(pnSidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
         );
+
+        pnContent.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-   VentanaRegistro vtRegistro = new VentanaRegistro();
-   vtRegistro.setVisible(true);
-
-
+    private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        initContent(new pnLogin());
+    }//GEN-LAST:event_btLoginActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      {
-   VentanaInicioSesion vtInicioSesion = new VentanaInicioSesion();
-   vtInicioSesion.setVisible(true);
-}   // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btReportesAerolineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesAerolineasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btReportesAerolineasActionPerformed
+
+    private void btSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSignUpActionPerformed
+        // TODO add your handling code here:
+        initContent(new pnRegistro());
+        
+    }//GEN-LAST:event_btSignUpActionPerformed
+
+    private void btEditarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarVuelosActionPerformed
+        // TODO add your handling code here:
+        initContent(new pnEditarVuelo());
+        
+    }//GEN-LAST:event_btEditarVuelosActionPerformed
+
+    private void btPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPrincipalActionPerformed
+        // TODO add your handling code here:
+        initContent(new pnPrincipal());
+    }//GEN-LAST:event_btPrincipalActionPerformed
+
+    private void btRegistrarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarVueloActionPerformed
+        // TODO add your handling code here:
+        initContent(new pnRegistrarVuelo());
+    }//GEN-LAST:event_btRegistrarVueloActionPerformed
+
+    private void btCancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarVueloActionPerformed
+        // TODO add your handling code here:
+        initContent(new pnCancelarVuelo());
+    }//GEN-LAST:event_btCancelarVueloActionPerformed
+
+    private void btReportesVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesVuelosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btReportesVuelosActionPerformed
+
+    private void btReportePasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportePasajerosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btReportePasajerosActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         FlatMaterialLighterIJTheme.setup();
+        
      
-        UIManager.put( "Button.arc", 999 );
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -174,11 +437,23 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel header;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel menus;
-    private javax.swing.JLabel nombreproyecto;
+    private javax.swing.JButton btCancelarVuelo;
+    private javax.swing.JButton btEditarVuelos;
+    private javax.swing.JButton btLogin;
+    private javax.swing.JButton btPrincipal;
+    private javax.swing.JButton btRegistrarVuelo;
+    private javax.swing.JButton btReportePasajeros;
+    private javax.swing.JButton btReportesAerolineas;
+    private javax.swing.JButton btReportesVuelos;
+    private javax.swing.JButton btSignUp;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lbBienvenida;
+    private javax.swing.JLabel lbDate;
+    private javax.swing.JLabel lbNavtext;
+    private javax.swing.JLabel lbNombrePrograma;
+    private javax.swing.JPanel pnContent;
+    private javax.swing.JPanel pnHeader;
+    private javax.swing.JPanel pnPrincipal;
+    private javax.swing.JPanel pnSidebar;
     // End of variables declaration//GEN-END:variables
 }
