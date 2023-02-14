@@ -6,6 +6,8 @@
 package presentacion;
 
 import java.awt.Color;
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
 import logica.Aerolinea;
 import logica.Vuelo;
 
@@ -135,11 +137,18 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
     private void btCancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarVueloActionPerformed
         // TODO add your handling code here:
-        Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
-        Vuelo vuelo = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(Integer.parseInt(txtID.getText()));
-        pnRegistro.getAdmin().cancelarVuelo(aerolinea, vuelo);
-        txtAerolinea.setText("");
-        txtID.setText("");
+        try {
+            Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+            Vuelo vuelo = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(Integer.parseInt(txtID.getText()));
+            pnRegistro.getAdmin().cancelarVuelo(aerolinea, vuelo);
+            JOptionPane.showMessageDialog(pnBackground, "Vuelo Cancelado");
+            txtAerolinea.setText("");
+            txtID.setText("");
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(pnBackground, "Error en la Cancelacion");
+            txtAerolinea.requestFocus();
+        }
+
     }//GEN-LAST:event_btCancelarVueloActionPerformed
 
 

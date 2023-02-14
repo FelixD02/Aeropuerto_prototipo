@@ -149,10 +149,14 @@ public class pnRegistro extends javax.swing.JPanel {
     private void btSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSignUpActionPerformed
         // TODO add your handling code here:
         String nombre = txtNombreRegistro.getText();
-        Long documento = Long.parseLong(txtIdentificacionRegistro.getText()); //Implementar try catch de error en parselong
+        Long documento = Long.valueOf(txtIdentificacionRegistro.getText()); //Implementar try catch de error en parselong
         String contraseña = txtContraseñaRegistro.getText();
         admin = new Usuario(nombre, documento, contraseña);
         JOptionPane.showMessageDialog(pnBackground, "Usuario Creado Exitosamente");
+        
+        txtContraseñaRegistro.setText("");
+        txtIdentificacionRegistro.setText("");
+        txtNombreRegistro.setText("");
     }//GEN-LAST:event_btSignUpActionPerformed
 
     public static Usuario getAdmin() {

@@ -6,6 +6,8 @@
 package presentacion;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import logica.Destino;
 
 /**
  *
@@ -217,10 +219,51 @@ public class pnEditarVuelo extends javax.swing.JPanel {
 
     private void btEdicionVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEdicionVueloActionPerformed
         // TODO add your handling code here:
+         try {
+            int id = Integer.parseInt(txtID.getText());
+
+            if (txtDestino.getText().equals("") == false) {
+                vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id).setDestino(new Destino(txtDestino.getText()));
+            }
+
+            if (txtAnio.getText().equals("") == false) {
+                vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id).setAño(Integer.parseInt(txtAnio.getText()));
+            }
+
+            if (txtDia.getText().equals("") == false) {
+                vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id).setDia(Integer.parseInt(txtDia.getText()));
+            }
+            if (txtMes.getText().equals("") == false) {
+                vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id).setMes(Integer.parseInt(txtDia.getText()));
+            }
+
+            if (txtHora.getText().equals("") == false) {
+                vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id).setHora(txtHora.getText());
+            }
+
+            if (txtPrecio.getText().equals("") == false) {
+                vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id).setPrecio(Double.parseDouble(txtAnio.getText()));
+            }
+
+            txtAnio.setText("");
+            txtDestino.setText("");
+            txtDia.setText("");
+            txtHora.setText("");
+            txtID.setText("");
+            txtMes.setText("");
+            txtPrecio.setText("");
+
+            JOptionPane.showMessageDialog(pnBackground, "Vuelo Editado");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(pnBackground, "Error al Editar");
+            txtID.requestFocus();
+
+        }
     }//GEN-LAST:event_btEdicionVueloActionPerformed
 
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtDestinoActionPerformed
 
 
