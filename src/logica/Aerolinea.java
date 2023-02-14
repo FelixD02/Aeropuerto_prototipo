@@ -11,6 +11,7 @@ public class Aerolinea {
 
     public Aerolinea(String nombre, int id) {
         this.nombre = nombre;
+        this.id = id;
         vuelos = new ArrayList();
     }
 

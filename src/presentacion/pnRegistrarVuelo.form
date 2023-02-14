@@ -240,7 +240,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbID">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ID vuelo:"/>
+            <Property name="text" type="java.lang.String" value="ID Vuelo:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtID">

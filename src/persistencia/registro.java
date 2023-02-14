@@ -52,7 +52,7 @@ public class registro {
                 Vuelo vuelo;
                 Destino destino = new Destino(lineSplit[0]);
                 vuelo = new Vuelo(destino, lineSplit[1], Double.parseDouble(lineSplit[2]), Integer.parseInt(lineSplit[3]),  Integer.parseInt(lineSplit[4]),  Integer.parseInt(lineSplit[5]), lineSplit[6],  Integer.parseInt(lineSplit[7]));
-                vuelo.setPasajeros(lecturaPasajeros(vuelo.getId()));
+                vuelo.setPasajeros(lecturaPasajeros(Integer.parseInt(lineSplit[7])));
                 vuelos.add(vuelo);
                 line = reader.readLine();
             }reader.close();

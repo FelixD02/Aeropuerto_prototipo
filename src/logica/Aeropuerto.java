@@ -9,17 +9,29 @@ public class Aeropuerto {
     private ArrayList<Aerolinea> aerolineas;
     private int cantidadAerolineas;
     private ArrayList<Destino> destinos;
+    private registro registro;
 
     public Aeropuerto(String nombre) {
         this.nombre = nombre;
         aerolineas = new ArrayList();
         cantidadAerolineas = 0;
         destinos = new ArrayList();
+        registro = new registro();
     }
 
     public void agregarAerolineas(Aerolinea aerolinea) {
         aerolineas.add(aerolinea);
         cantidadAerolineas++;
+    }
+    
+    public void agregarVuelos(Aerolinea aerolinea,Vuelo vuelo) {
+        aerolinea.registrarVuelo(vuelo);
+        registro.actualizarVuelos(aerolinea);
+    }
+    
+    public void cancelarVuelos(Aerolinea aerolinea,Vuelo vuelo) {
+        aerolinea.getVuelos().remove(vuelo);
+        registro.actualizarVuelos(aerolinea);
     }
 
     public void guardarDestinos() {
@@ -54,7 +66,7 @@ public class Aeropuerto {
         ArrayList<String> vuelosConsultados = new ArrayList<>();
         for (Aerolinea a : aerolineas) {
             for (Vuelo v : a.getVuelos()) {
-                vuelosConsultados.add("Aerolinea:  " + a.getNombre() + " " + v.ConsultarVuelo());
+                vuelosConsultados.add("Aerolinea ID#" + a.getId() + ": " + a.getNombre() + " " + v.ConsultarVuelo());
             }
         }
 
@@ -136,8 +148,8 @@ public class Aeropuerto {
         return pasajerosPorEdad;
     }
 
-    public String pasajerosPorNacionalidad() {
-        String pasajerosPorNacionalidad;
+    public int[] pasajerosPorNacionalidad() {
+        int pasajerosPorNacionalidad[] = new int[2];
         int colombianos = 0, extranjeros = 0;
         for (Aerolinea aerolinea : aerolineas) {
             for (Vuelo vuelo : aerolinea.getVuelos()) {
@@ -151,12 +163,15 @@ public class Aeropuerto {
                 }
             }
         }
-        pasajerosPorNacionalidad = "Colombianos: " + colombianos + "  Extranjeros: " + extranjeros;
+        
+        pasajerosPorNacionalidad[0] = colombianos;
+        pasajerosPorNacionalidad[1] = extranjeros;
+        
         return pasajerosPorNacionalidad;
     }
 
-    public String pasajerosPorSexo() {
-        String pasajerosPorSexo;
+    public int[] pasajerosPorSexo() {
+        int pasajerosPorSexo[] = new int[2];
         int masculino = 0, femenino = 0;
         for (Aerolinea aerolinea : aerolineas) {
             for (Vuelo vuelo : aerolinea.getVuelos()) {
@@ -170,7 +185,8 @@ public class Aeropuerto {
                 }
             }
         }
-        pasajerosPorSexo = "Masculinos: " + masculino + "  Femenino: " + femenino;
+        pasajerosPorSexo[0] = masculino;
+        pasajerosPorSexo[1] = femenino;
         return pasajerosPorSexo;
     }
 

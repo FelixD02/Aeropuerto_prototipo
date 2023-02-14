@@ -79,7 +79,7 @@ public class pnReporteVuelos extends javax.swing.JPanel {
 
         txtIDVueloEspecial.setBackground(new java.awt.Color(255, 255, 255));
         txtIDVueloEspecial.setForeground(new java.awt.Color(0, 0, 0));
-        txtIDVueloEspecial.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 0, 13), new java.awt.Color(0, 0, 0))); // NOI18N
+        txtIDVueloEspecial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtIDVueloEspecial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDVueloEspecialActionPerformed(evt);
@@ -102,24 +102,24 @@ public class pnReporteVuelos extends javax.swing.JPanel {
                         .addGap(24, 24, 24))
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
                         .addComponent(lbInstruccionesVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtIDVueloEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                        .addGap(27, 27, 27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIDVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btReporteEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(116, 116, 116))))
+                        .addGap(142, 142, 142))))
         );
         pnBackgroundLayout.setVerticalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbInstruccionesVueloEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(txtIDVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btReporteEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btReporteEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIDVueloEspecial))
                 .addGap(18, 18, 18)
-                .addComponent(spnListaVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(spnListaVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                 .addGap(151, 151, 151))
         );
 
@@ -146,14 +146,15 @@ public class pnReporteVuelos extends javax.swing.JPanel {
 
     private void btReporteEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReporteEspecialActionPerformed
         // TODO add your handling code here:
+        
         DefaultListModel model = vtSistemaAeoropuerto.getDefaultListModel();
         model.removeAllElements();
         String str = txtIDVueloEspecial.getText();
         int id = Integer.parseInt(str);
         Vuelo v = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id);
-        model.addElement(v.ConsultarVuelo());
+        model.addElement(v.ConsultarVueloEspecial());
         lstVuelos.setModel(model);
-
+        
     }//GEN-LAST:event_btReporteEspecialActionPerformed
 
     public JButton getBtReporteEspecial() {

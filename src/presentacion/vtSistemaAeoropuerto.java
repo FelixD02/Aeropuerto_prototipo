@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import logica.*;
 import persistencia.*;
 
@@ -39,10 +41,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     public static void setVuelosAeropuerto(ArrayList<String> vuelosAeropuerto) {
         vtSistemaAeoropuerto.vuelosAeropuerto = vuelosAeropuerto;
     }
-    
-    
-   
-    
+
     /**
      * Creates new form vtSistemaAeoropuerto
      */
@@ -52,6 +51,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         setDate();
         initContent(new pnPrincipal());
         vuelosAeropuerto = aeropuertoUIS.consultarVuelosAeropuertos();
+        defaultListModel = new DefaultListModel();
 
     }
 
@@ -69,6 +69,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         lbDate.setForeground(Color.WHITE);
         lbNombrePrograma.putClientProperty("FlatLaf.style", "font: bold $h1.regular.font");
         lbNombrePrograma.setForeground(Color.WHITE);
+        lbTitulo.putClientProperty("FlatLaf.style", "font: light $h1.regular.font");
+        lbTitulo.setForeground(Color.black);
 
     }
 
@@ -116,7 +118,6 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1030, 640));
-        setPreferredSize(new java.awt.Dimension(1030, 640));
         setSize(new java.awt.Dimension(1030, 640));
 
         pnPrincipal.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,8 +151,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btReportesAerolineas.setText("Reporte de Aerolineas");
         btReportesAerolineas.setToolTipText("");
         btReportesAerolineas.setBorder(null);
-        btReportesAerolineas.setBorderPainted(false);
         btReportesAerolineas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportesAerolineas.setDoubleBuffered(true);
         btReportesAerolineas.setEnabled(false);
         btReportesAerolineas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,8 +179,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btEditarVuelos.setText("Editar Vuelo");
         btEditarVuelos.setToolTipText("");
         btEditarVuelos.setBorder(null);
-        btEditarVuelos.setBorderPainted(false);
         btEditarVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEditarVuelos.setDoubleBuffered(true);
         btEditarVuelos.setEnabled(false);
         btEditarVuelos.setPreferredSize(new java.awt.Dimension(130, 17));
         btEditarVuelos.addActionListener(new java.awt.event.ActionListener() {
@@ -207,8 +208,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btRegistrarVuelo.setText("Registrar Vuelo");
         btRegistrarVuelo.setToolTipText("");
         btRegistrarVuelo.setBorder(null);
-        btRegistrarVuelo.setBorderPainted(false);
         btRegistrarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btRegistrarVuelo.setDoubleBuffered(true);
         btRegistrarVuelo.setEnabled(false);
         btRegistrarVuelo.setPreferredSize(new java.awt.Dimension(130, 17));
         btRegistrarVuelo.addActionListener(new java.awt.event.ActionListener() {
@@ -222,8 +223,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btCancelarVuelo.setText("Cancelar Vuelo");
         btCancelarVuelo.setToolTipText("");
         btCancelarVuelo.setBorder(null);
-        btCancelarVuelo.setBorderPainted(false);
         btCancelarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCancelarVuelo.setDoubleBuffered(true);
         btCancelarVuelo.setEnabled(false);
         btCancelarVuelo.setPreferredSize(new java.awt.Dimension(130, 17));
         btCancelarVuelo.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +238,6 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btReportesVuelos.setText("Reporte de Vuelos");
         btReportesVuelos.setToolTipText("");
         btReportesVuelos.setBorder(null);
-        btReportesVuelos.setBorderPainted(false);
         btReportesVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btReportesVuelos.setEnabled(false);
         btReportesVuelos.setPreferredSize(new java.awt.Dimension(130, 17));
@@ -252,8 +252,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btReportePasajeros.setText("Reporte de Pasajeros");
         btReportePasajeros.setToolTipText("");
         btReportePasajeros.setBorder(null);
-        btReportePasajeros.setBorderPainted(false);
         btReportePasajeros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportePasajeros.setDoubleBuffered(true);
         btReportePasajeros.setEnabled(false);
         btReportePasajeros.setMaximumSize(new java.awt.Dimension(130, 17));
         btReportePasajeros.setMinimumSize(new java.awt.Dimension(130, 17));
@@ -275,7 +275,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btRegistrarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEditarVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -348,10 +348,13 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         pnBackground.setBackground(new java.awt.Color(255, 255, 255));
         pnBackground.setMinimumSize(new java.awt.Dimension(750, 430));
 
+        lbTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lbTitulo.setText("Inicio de Sesión Administrador");
 
+        lbContrasena.setForeground(new java.awt.Color(0, 0, 0));
         lbContrasena.setText("Contraseña:");
 
+        lbIdentificacion.setForeground(new java.awt.Color(0, 0, 0));
         lbIdentificacion.setText("Identificación:");
 
         btLogin1.setBackground(new java.awt.Color(255, 255, 255));
@@ -373,39 +376,37 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
-                        .addComponent(btLogin1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
-                        .addGap(316, 316, 316))
-                    .addGroup(pnBackgroundLayout.createSequentialGroup()
-                        .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+                        .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btLogin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(pnBackgroundLayout.createSequentialGroup()
+                                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(lbContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                                    .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))
-                                .addGap(220, 220, 220)))
-                        .addGap(96, 96, 96))))
+                                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                                    .addComponent(txtContrasena))))
+                        .addGap(218, 218, 218)))
+                .addGap(96, 96, 96))
         );
         pnBackgroundLayout.setVerticalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
-                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtIdentificacion)
+                    .addComponent(lbIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtContrasena)
-                    .addComponent(lbContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22)
-                .addComponent(btLogin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(259, 259, 259))
+                    .addComponent(lbContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(btLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(307, Short.MAX_VALUE))
         );
 
         pnContent.add(pnBackground, java.awt.BorderLayout.CENTER);
@@ -492,18 +493,29 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private void btReportesVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesVuelosActionPerformed
         // TODO add your handling code here:
+        /*
+        pnReporteVuelos pnReporteVuelo = new pnReporteVuelos();
+        initContent(pnReporteVuelo);
+        
+        defaultListModel.removeAllElements();
+        for (String str : vuelosAeropuerto) {
+            defaultListModel.addElement(str);
+        }
+        pnReporteVuelo.getLstVuelos().setModel(defaultListModel);
+         */
+
         pnReporteVuelos pnReporteVuelo = new pnReporteVuelos();
         initContent(pnReporteVuelo);
         defaultListModel = new DefaultListModel();
         JList lstVuelo = pnReporteVuelo.getLstVuelos();
-        
+        defaultListModel.removeAllElements();
+        ArrayList<String> vuelosAeropuerto = aeropuertoUIS.consultarVuelosAeropuertos();
         for (String str : vuelosAeropuerto) {
             defaultListModel.addElement(str);
             defaultListModel.addElement("  ");
 
         }
         lstVuelo.setModel(defaultListModel);
-
     }//GEN-LAST:event_btReportesVuelosActionPerformed
 
     private void btReportePasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportePasajerosActionPerformed
@@ -516,7 +528,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         Usuario admin = pnRegistro.getAdmin();
         String pwd = new String(txtContrasena.getPassword());
         String contraseña = pwd;
-        Long identificacion = Long.parseLong(txtIdentificacion.getText());
+        Long identificacion = Long.valueOf(txtIdentificacion.getText());
         boolean login = admin.iniciarSesion(identificacion, contraseña);
         if (login) {
             btCancelarVuelo.setEnabled(true);
@@ -529,6 +541,9 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
             btSignUp.setEnabled(false);
             main = new main();
             main.iniciar();
+            JOptionPane.showMessageDialog(pnContent, "Login Exitoso");
+        } else {
+            JOptionPane.showMessageDialog(pnContent, "Login Fallido");
         }
     }//GEN-LAST:event_btLogin1ActionPerformed
 
@@ -537,6 +552,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         FlatMaterialLighterIJTheme.setup();
+        UIManager.put("Button.disabledBackground", new Color(13, 71, 161));
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -549,8 +565,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     public static Aeropuerto getAeropuertoUIS() {
         return aeropuertoUIS;
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelarVuelo;
     private javax.swing.JButton btEditarVuelos;

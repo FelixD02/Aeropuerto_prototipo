@@ -95,9 +95,7 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
 
         lbDia.setText("Dia:");
 
-        btRegistroVuelo.setBackground(new java.awt.Color(255, 255, 255));
         btRegistroVuelo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btRegistroVuelo.setForeground(new java.awt.Color(0, 0, 0));
         btRegistroVuelo.setText("Registrar");
         btRegistroVuelo.setBorder(null);
         btRegistroVuelo.setBorderPainted(false);
@@ -115,9 +113,9 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
 
         lbPrecio.setText("Precio:");
 
-        lbID.setText("Id:");
+        lbID.setText("ID Vuelo:");
 
-        lbAerolinea.setText("Aerolinea:");
+        lbAerolinea.setText("ID Aerolinea:");
 
         txtAerolinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +245,7 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
 
             Vuelo vuelo = new Vuelo(destino, avion, precio, dia, mes, anio, hora, id);
 
-            pnRegistro.getAdmin().registrarVuelo(aerolinea, vuelo);
+            vtSistemaAeoropuerto.getAeropuertoUIS().agregarVuelos(aerolinea, vuelo);
             JOptionPane.showMessageDialog(pnBackground, "Vuelo Registrado");
 
             txtAerolinea.setText("");

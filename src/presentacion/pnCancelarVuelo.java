@@ -62,7 +62,9 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
         lbTitulo.setText("Cancelación de un Vuelo");
 
+        btCancelarVuelo.setBackground(new java.awt.Color(255, 255, 255));
         btCancelarVuelo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btCancelarVuelo.setForeground(new java.awt.Color(0, 0, 0));
         btCancelarVuelo.setText("Cancelar");
         btCancelarVuelo.setBorder(null);
         btCancelarVuelo.setBorderPainted(false);
@@ -76,52 +78,58 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
         lbAerolinea.setText("ID Aerolinea:");
 
+        txtAerolinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAerolineaActionPerformed(evt);
+            }
+        });
+
         lbInstruccionesCancelacionVuelo.setText("Para Cancelar un Vuelo ingrese el ID de la Aerolinea y el Vuelo");
 
         javax.swing.GroupLayout pnBackgroundLayout = new javax.swing.GroupLayout(pnBackground);
         pnBackground.setLayout(pnBackgroundLayout);
         pnBackgroundLayout.setHorizontalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
-                        .addComponent(lbInstruccionesCancelacionVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(lbInstruccionesCancelacionVuelo, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
+                        .addGap(271, 271, 271))
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
                         .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
                         .addGap(96, 96, 96))
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
-                        .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBackgroundLayout.createSequentialGroup()
-                                .addComponent(lbAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(pnBackgroundLayout.createSequentialGroup()
-                                .addComponent(lbID, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-                                .addGap(12, 12, 12)))
                         .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtID)
-                            .addComponent(txtAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)))))
+                            .addComponent(btCancelarVuelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnBackgroundLayout.createSequentialGroup()
+                                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtID)
+                                    .addComponent(txtAerolinea))))
+                        .addGap(245, 245, 245))))
         );
         pnBackgroundLayout.setVerticalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbInstruccionesCancelacionVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbInstruccionesCancelacionVuelo, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtAerolinea))
+                    .addComponent(lbAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAerolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbID, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                    .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(btCancelarVuelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(255, 255, 255))
+                    .addComponent(lbID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btCancelarVuelo)
+                .addGap(261, 261, 261))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -145,8 +153,8 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
             Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(Integer.parseInt(txtAerolinea.getText()));
             Vuelo vuelo = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(Integer.parseInt(txtID.getText()));
             
-            
-            pnRegistro.getAdmin().cancelarVuelo(aerolinea, vuelo);
+            vtSistemaAeoropuerto.getAeropuertoUIS().cancelarVuelos(aerolinea, vuelo);
+           
             JOptionPane.showMessageDialog(pnBackground, "Vuelo Cancelado");
             txtAerolinea.setText("");
             txtID.setText("");
@@ -156,6 +164,10 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_btCancelarVueloActionPerformed
+
+    private void txtAerolineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAerolineaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAerolineaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

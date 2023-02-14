@@ -1,8 +1,6 @@
 package logica;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import persistencia.*;
 
 public class Usuario {
 
@@ -12,45 +10,20 @@ public class Usuario {
     private static int cantidadUsuarios = 0;
 
     public Usuario(String nombre, long documento, String contraseña) {
+        if (cantidadUsuarios < 1) {
             this.nombre = nombre;
             this.documento = documento;
             this.contraseña = contraseña;
             Usuario.cantidadUsuarios++;
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No es posible crear un Usuario ahora");
+        }
     }
 
     public boolean iniciarSesion(long documento, String contraseña) {
         return (documento == getDocumento() && contraseña.equals(getContraseña()));
     }
-    
-    
-
-    public void registrarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
-        aerolinea.registrarVuelo(vuelo);
-        registro registro = new registro();
-        registro.actualizarVuelos(aerolinea);
-    }
-
-    public void cancelarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
-        
-        aerolinea.cancelarVuelo(vuelo);
-        registro borrar = new registro();
-        borrar.actualizarVuelos(aerolinea);
-    }
-    
-    public void editarVuelo(Aerolinea aerolinea,  Vuelo vuelo){
-        aerolinea.editarVuelo(vuelo);
-        registro editar = new registro();
-        editar.actualizarVuelos(aerolinea);
-    }
-
-    public ArrayList ListaVuelosAeropuerto(Aeropuerto aeropuerto) {
-        return aeropuerto.listaVuelos();
-    }
-    /**
-    public String informeVuelo(Vuelo vuelo){
-        return vuelo.ConsultarVuelo();
-    }
-**/
 
     public String getNombre() {
         return nombre;
