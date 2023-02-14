@@ -58,23 +58,27 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="btReporteEspecial" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbTitulo" max="32767" attributes="0"/>
-                          <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lbTitulo" max="32767" attributes="0"/>
+                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="spnListaVuelos" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="spnListaVuelos" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbInstruccionesVueloEspecial" pref="538" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtAerolineaVueloEspecial" min="-2" pref="85" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtIDVueloEspecial" min="-2" pref="85" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lbInstruccionesVueloEspecial" min="-2" pref="375" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="txtIDVueloEspecial" pref="85" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="btReporteEspecial" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,18 +86,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="lbTitulo" pref="20" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="lbTitulo" pref="23" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbInstruccionesVueloEspecial" alignment="3" max="32767" attributes="0"/>
-                      <Component id="txtAerolineaVueloEspecial" alignment="3" max="32767" attributes="0"/>
-                      <Component id="txtIDVueloEspecial" alignment="3" max="32767" attributes="0"/>
+                      <Component id="lbInstruccionesVueloEspecial" alignment="3" pref="41" max="32767" attributes="0"/>
+                      <Component id="txtIDVueloEspecial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btReporteEspecial" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btReporteEspecial" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="spnListaVuelos" pref="148" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="spnListaVuelos" pref="178" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -128,28 +130,8 @@
         </Container>
         <Component class="javax.swing.JLabel" name="lbInstruccionesVueloEspecial">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Para ver el Reporte de un Vuelo en especifico ingrese su ID y Aerolinea:"/>
+            <Property name="text" type="java.lang.String" value="Para ver el Reporte de un Vuelo en especifico ingrese su ID:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtAerolineaVueloEspecial">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Aerolinea">
-                  <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
-                </TitledBorder>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAerolineaVueloEspecialActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btReporteEspecial">
           <Properties>
@@ -161,6 +143,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Reporte Vuelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btReporteEspecialActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtIDVueloEspecial">
           <Properties>

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class Vuelo {
 
     private Destino destino;
-    private Avion avion;
-    private String dia;
-    private String mes;
+    private String avion;
+    private int dia;
+    private int mes;
     private int año;
     private String hora;
     private double precio;
@@ -16,7 +16,10 @@ public class Vuelo {
     private int id;
     private final registro registroPasajeros;
 
-    public Vuelo(Destino destino, Avion avion, double precio, String dia, String mes, int año, String hora, int id) {
+    public Vuelo(){
+        registroPasajeros = new registro();
+    }
+    public Vuelo(Destino destino, String avion, double precio, int dia, int mes, int año, String hora, int id) {
         this.destino = destino;
         this.avion = avion;
         this.dia = dia;
@@ -41,8 +44,10 @@ public class Vuelo {
     }
 
     public String ConsultarVuelo() {
-        return "Vuelo " + id + ",destino " + destino + ", avion " + avion + ", dia " + dia + ", mes " + mes + ", año " + año + ", hora " + hora + ", precio " + ", id " + id + ", ganancias " + pasajeros.size() * precio;
+        return destino + " " + dia + "/" + mes + "/" + año + " " + "ID " + id + "\n";
     }
+  
+    
 
     public Destino getDestino() {
         return destino;
@@ -52,11 +57,11 @@ public class Vuelo {
         this.destino = destino;
     }
 
-    public Avion getAvion() {
+    public String getAvion() {
         return avion;
     }
 
-    public void setAvion(Avion avion) {
+    public void setAvion(String avion) {
         this.avion = avion;
     }
 
@@ -68,21 +73,7 @@ public class Vuelo {
         this.precio = precio;
     }
 
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
-    }
+   
 
     public int getAño() {
         return año;

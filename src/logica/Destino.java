@@ -3,18 +3,15 @@ package logica;
 public class Destino {
 
     private String nombre;
-    private double distancia;
     private int visitantes;
 
-    public Destino(String nombre, double distancia) {
+    public Destino(String nombre) {
         this.nombre = nombre;
-        this.distancia = distancia;
         visitantes = 0;
     }
     
     public Destino(){ //Este constructuror está implementado para poder instanciar objetos con atributos nulos.
         this.nombre = "";
-        this.distancia = 0;
         this.visitantes = 0;
     }
     
@@ -30,14 +27,6 @@ public class Destino {
         this.nombre = nombre;
     }
 
-    public double getDistancia() {
-        return distancia;
-    }
-
-    public void setDistancia(double distancia) {
-        this.distancia = distancia;
-    }
-
     public int getVisitantes() {
         return visitantes;
     }
@@ -48,7 +37,7 @@ public class Destino {
 
     @Override
     public String toString() {
-        return "Destino{" + "nombre=" + nombre + ", distancia=" + distancia + ", visitantes=" + visitantes + '}';
+        return "Destino{" + "nombre=" + nombre + ", visitantes=" + visitantes + '}';
     }
     
     

@@ -5,6 +5,15 @@
 package presentacion;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import logica.Aeropuerto;
+import logica.Vuelo;
 
 /**
  *
@@ -20,10 +29,12 @@ public class pnReporteVuelos extends javax.swing.JPanel {
         InitStyles();
     }
 
+    private DefaultListModel defaultListModel;
+    
     private void InitStyles() {
         lbTitulo.putClientProperty("FlatLaf.style", "font: light $h1.regular.font");
         lbTitulo.setForeground(Color.black);
-        lbInstruccionesVueloEspecial.putClientProperty("FlatLaf.style", "font: light $h3.regular.font");
+        lbInstruccionesVueloEspecial.putClientProperty("FlatLaf.style", "font: light $medium.font");
         lbInstruccionesVueloEspecial.setForeground(Color.black);
         
     }
@@ -40,7 +51,6 @@ public class pnReporteVuelos extends javax.swing.JPanel {
         spnListaVuelos = new javax.swing.JScrollPane();
         lstVuelos = new javax.swing.JList<>();
         lbInstruccionesVueloEspecial = new javax.swing.JLabel();
-        txtAerolineaVueloEspecial = new javax.swing.JTextField();
         btReporteEspecial = new javax.swing.JButton();
         txtIDVueloEspecial = new javax.swing.JTextField();
 
@@ -58,20 +68,16 @@ public class pnReporteVuelos extends javax.swing.JPanel {
         lstVuelos.setForeground(new java.awt.Color(0, 0, 0));
         spnListaVuelos.setViewportView(lstVuelos);
 
-        lbInstruccionesVueloEspecial.setText("Para ver el Reporte de un Vuelo en especifico ingrese su ID y Aerolinea:");
-
-        txtAerolineaVueloEspecial.setBackground(new java.awt.Color(255, 255, 255));
-        txtAerolineaVueloEspecial.setForeground(new java.awt.Color(0, 0, 0));
-        txtAerolineaVueloEspecial.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aerolinea", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Roboto", 0, 13), new java.awt.Color(0, 0, 0))); // NOI18N
-        txtAerolineaVueloEspecial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAerolineaVueloEspecialActionPerformed(evt);
-            }
-        });
+        lbInstruccionesVueloEspecial.setText("Para ver el Reporte de un Vuelo en especifico ingrese su ID:");
 
         btReporteEspecial.setBackground(new java.awt.Color(255, 255, 255));
         btReporteEspecial.setForeground(new java.awt.Color(0, 0, 0));
         btReporteEspecial.setText("Reporte Vuelo");
+        btReporteEspecial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReporteEspecialActionPerformed(evt);
+            }
+        });
 
         txtIDVueloEspecial.setBackground(new java.awt.Color(255, 255, 255));
         txtIDVueloEspecial.setForeground(new java.awt.Color(0, 0, 0));
@@ -88,35 +94,35 @@ public class pnReporteVuelos extends javax.swing.JPanel {
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btReporteEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnBackgroundLayout.createSequentialGroup()
-                        .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(60, 60, 60))
-                    .addComponent(spnListaVuelos, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnBackgroundLayout.createSequentialGroup()
-                        .addComponent(lbInstruccionesVueloEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAerolineaVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIDVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
+                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnBackgroundLayout.createSequentialGroup()
+                        .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnBackgroundLayout.createSequentialGroup()
+                                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(60, 60, 60))
+                            .addComponent(spnListaVuelos))
+                        .addGap(24, 24, 24))
+                    .addGroup(pnBackgroundLayout.createSequentialGroup()
+                        .addComponent(lbInstruccionesVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(txtIDVueloEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btReporteEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(116, 116, 116))))
         );
         pnBackgroundLayout.setVerticalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbInstruccionesVueloEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtAerolineaVueloEspecial)
-                    .addComponent(txtIDVueloEspecial))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btReporteEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spnListaVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                .addGap(174, 174, 174))
+                    .addComponent(lbInstruccionesVueloEspecial, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(txtIDVueloEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btReporteEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(spnListaVuelos, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addGap(151, 151, 151))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -134,13 +140,63 @@ public class pnReporteVuelos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAerolineaVueloEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAerolineaVueloEspecialActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAerolineaVueloEspecialActionPerformed
-
     private void txtIDVueloEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDVueloEspecialActionPerformed
         // TODO add your handling code here:
+        String str = txtIDVueloEspecial.getText();
+        int id = Integer.parseInt(str);
+        Vuelo v = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id);
+  
+        defaultListModel.addElement(v.toString());
+            
+        lstVuelos.setModel(defaultListModel);
+        
     }//GEN-LAST:event_txtIDVueloEspecialActionPerformed
+
+    private void btReporteEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReporteEspecialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btReporteEspecialActionPerformed
+
+    public JButton getBtReporteEspecial() {
+        return btReporteEspecial;
+    }
+
+    public void setBtReporteEspecial(JButton btReporteEspecial) {
+        this.btReporteEspecial = btReporteEspecial;
+    }
+
+    public JList<String> getLstVuelos() {
+        return lstVuelos;
+    }
+
+    public void setLstVuelos(JList<String> lstVuelos) {
+        this.lstVuelos = lstVuelos;
+    }
+
+    public JPanel getPnBackground() {
+        return pnBackground;
+    }
+
+    public void setPnBackground(JPanel pnBackground) {
+        this.pnBackground = pnBackground;
+    }
+
+    public JScrollPane getSpnListaVuelos() {
+        return spnListaVuelos;
+    }
+
+    public void setSpnListaVuelos(JScrollPane spnListaVuelos) {
+        this.spnListaVuelos = spnListaVuelos;
+    }
+
+
+
+    public JTextField getTxtIDVueloEspecial() {
+        return txtIDVueloEspecial;
+    }
+
+    public void setTxtIDVueloEspecial(JTextField txtIDVueloEspecial) {
+        this.txtIDVueloEspecial = txtIDVueloEspecial;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -150,7 +206,6 @@ public class pnReporteVuelos extends javax.swing.JPanel {
     private javax.swing.JList<String> lstVuelos;
     private javax.swing.JPanel pnBackground;
     private javax.swing.JScrollPane spnListaVuelos;
-    private javax.swing.JTextField txtAerolineaVueloEspecial;
     private javax.swing.JTextField txtIDVueloEspecial;
     // End of variables declaration//GEN-END:variables
 }

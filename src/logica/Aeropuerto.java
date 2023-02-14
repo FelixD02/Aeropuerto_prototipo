@@ -32,6 +32,29 @@ public class Aeropuerto {
         }
         return vuelosAeropuerto;
     }
+    
+    public Vuelo seleccionarVuelo(int id) {
+        Vuelo x = new Vuelo();
+        for (Aerolinea aerolinea : aerolineas) {
+            for (Vuelo vuelo : aerolinea.getVuelos()) {
+                if (vuelo.getId() == id) {
+                    x = vuelo;
+                }
+            }
+        }
+        return x;
+    }
+    
+    public ArrayList<String> consultarVuelosAeropuertos(){
+        ArrayList<String> vuelosConsultados = new ArrayList<String>();
+        for(Aerolinea a: aerolineas){
+            for(Vuelo v: a.getVuelos()){
+                vuelosConsultados.add(a.getNombre() + " " + v.ConsultarVuelo()); 
+            }
+        } 
+        
+        return vuelosConsultados;
+    }
 
     public ArrayList destinosMasVisitados() {
         for (Aerolinea aerolinea : aerolineas) {
@@ -76,6 +99,16 @@ public class Aeropuerto {
             }
         }
         return aerolineaMasUsada;
+    }
+    
+    public Aerolinea seleccionarAerolinea(String str){
+        Aerolinea aerolineaSeleccionada = new Aerolinea();
+        for(Aerolinea aerolinea : aerolineas){
+            if(aerolinea.getNombre().equalsIgnoreCase(str)){
+                aerolineaSeleccionada = aerolinea;
+            }
+        }
+        return aerolineaSeleccionada;
     }
     
     public String pasajerosPorEdad(){

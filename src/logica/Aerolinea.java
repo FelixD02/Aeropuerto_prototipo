@@ -40,6 +40,7 @@ public class Aerolinea {
         return pasajesVendidos;
     }
     
+    
     public String getNombre() {
         return nombre;
     }

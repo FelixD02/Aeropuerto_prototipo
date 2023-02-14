@@ -6,6 +6,8 @@
 package presentacion;
 
 import java.awt.Color;
+import logica.Aerolinea;
+import logica.Vuelo;
 
 /**
  *
@@ -133,6 +135,11 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
     private void btCancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarVueloActionPerformed
         // TODO add your handling code here:
+        Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+        Vuelo vuelo = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(Integer.parseInt(txtID.getText()));
+        pnRegistro.getAdmin().cancelarVuelo(aerolinea, vuelo);
+        txtAerolinea.setText("");
+        txtID.setText("");
     }//GEN-LAST:event_btCancelarVueloActionPerformed
 
 

@@ -4,26 +4,27 @@
  */
 package presentacion;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.security.Principal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Locale;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
+import logica.Aeropuerto;
+import logica.Usuario;
 
 /**
  *
  * @author juanfe
  */
 public class vtSistemaAeoropuerto extends javax.swing.JFrame {
+
+    private static Aeropuerto aeropuertoUIS = new Aeropuerto("Aeropuerto UIS");
+    private DefaultListModel defaultListModel;
 
     /**
      * Creates new form vtSistemaAeoropuerto
@@ -35,31 +36,30 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         initContent(new pnPrincipal());
 
     }
-    
+
     private void setDate() {
         LocalDate now = LocalDate.now();
         Locale spanishLocale = new Locale("es", "ES");
         lbDate.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' yyyy", spanishLocale)));
     }
-    
-    private void initStyles(){
-        lbBienvenida.putClientProperty( "FlatLaf.style", "font: 14 $light.font" );
-        lbBienvenida.setForeground(Color.BLACK);
-        lbNavtext.putClientProperty( "FlatLaf.style", "font: bold $h3.regular.font" );
+
+    private void initStyles() {
+
+        lbNavtext.putClientProperty("FlatLaf.style", "font: bold $h3.regular.font");
         lbNavtext.setForeground(Color.WHITE);
-        lbDate.putClientProperty( "FlatLaf.style", "font: 24 $light.font" );
+        lbDate.putClientProperty("FlatLaf.style", "font: 24 $light.font");
         lbDate.setForeground(Color.WHITE);
-        lbNombrePrograma.putClientProperty( "FlatLaf.style", "font: bold $h1.regular.font" );
+        lbNombrePrograma.putClientProperty("FlatLaf.style", "font: bold $h1.regular.font");
         lbNombrePrograma.setForeground(Color.WHITE);
-       
+
     }
-        private void initContent(JPanel p) {
+
+    private void initContent(JPanel p) {
         p.setSize(750, 430);
-        p.setLocation(0,0);
-      
-        
+        p.setLocation(0, 0);
+
         pnContent.removeAll();
-        pnContent.add(p,BorderLayout.CENTER);
+        pnContent.add(p, BorderLayout.CENTER);
         pnContent.revalidate();
         pnContent.repaint();
     }
@@ -87,8 +87,14 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         pnHeader = new javax.swing.JPanel();
         lbNavtext = new javax.swing.JLabel();
         lbDate = new javax.swing.JLabel();
-        lbBienvenida = new javax.swing.JLabel();
         pnContent = new javax.swing.JPanel();
+        pnBackground = new javax.swing.JPanel();
+        lbTitulo = new javax.swing.JLabel();
+        lbContrasena = new javax.swing.JLabel();
+        lbIdentificacion = new javax.swing.JLabel();
+        txtIdentificacion = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JPasswordField();
+        btLogin1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1030, 640));
@@ -128,6 +134,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btReportesAerolineas.setBorder(null);
         btReportesAerolineas.setBorderPainted(false);
         btReportesAerolineas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportesAerolineas.setEnabled(false);
         btReportesAerolineas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btReportesAerolineasActionPerformed(evt);
@@ -155,6 +162,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btEditarVuelos.setBorder(null);
         btEditarVuelos.setBorderPainted(false);
         btEditarVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEditarVuelos.setEnabled(false);
         btEditarVuelos.setPreferredSize(new java.awt.Dimension(130, 17));
         btEditarVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +191,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btRegistrarVuelo.setBorder(null);
         btRegistrarVuelo.setBorderPainted(false);
         btRegistrarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btRegistrarVuelo.setEnabled(false);
         btRegistrarVuelo.setPreferredSize(new java.awt.Dimension(130, 17));
         btRegistrarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +206,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btCancelarVuelo.setBorder(null);
         btCancelarVuelo.setBorderPainted(false);
         btCancelarVuelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCancelarVuelo.setEnabled(false);
         btCancelarVuelo.setPreferredSize(new java.awt.Dimension(130, 17));
         btCancelarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +221,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btReportesVuelos.setBorder(null);
         btReportesVuelos.setBorderPainted(false);
         btReportesVuelos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportesVuelos.setEnabled(false);
         btReportesVuelos.setPreferredSize(new java.awt.Dimension(130, 17));
         btReportesVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +236,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         btReportePasajeros.setBorder(null);
         btReportePasajeros.setBorderPainted(false);
         btReportePasajeros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReportePasajeros.setEnabled(false);
         btReportePasajeros.setMaximumSize(new java.awt.Dimension(130, 17));
         btReportePasajeros.setMinimumSize(new java.awt.Dimension(130, 17));
         btReportePasajeros.setPreferredSize(new java.awt.Dimension(130, 17));
@@ -238,26 +250,29 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         pnSidebar.setLayout(pnSidebarLayout);
         pnSidebarLayout.setHorizontalGroup(
             pnSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbNombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(pnSidebarLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btRegistrarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btEditarVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btReportesVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btReportePasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btReportesAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnSidebarLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btRegistrarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEditarVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btReportesVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btReportePasajeros, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btReportesAerolineas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
         pnSidebarLayout.setVerticalGroup(
             pnSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnSidebarLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(lbNombrePrograma, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(btPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,31 +306,91 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         pnHeaderLayout.setHorizontalGroup(
             pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnHeaderLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(12, 12, 12)
                 .addGroup(pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbNavtext, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         pnHeaderLayout.setVerticalGroup(
             pnHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnHeaderLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addComponent(lbNavtext, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
-
-        lbBienvenida.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        lbBienvenida.setForeground(new java.awt.Color(0, 0, 0));
-        lbBienvenida.setText("Bienvenido!");
-        lbBienvenida.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         pnContent.setBackground(new java.awt.Color(255, 255, 255));
         pnContent.setMinimumSize(new java.awt.Dimension(750, 430));
         pnContent.setPreferredSize(new java.awt.Dimension(0, 0));
         pnContent.setLayout(new java.awt.BorderLayout());
+
+        pnBackground.setBackground(new java.awt.Color(255, 255, 255));
+        pnBackground.setMinimumSize(new java.awt.Dimension(750, 430));
+
+        lbTitulo.setText("Inicio de Sesión Administrador");
+
+        lbContrasena.setText("Contraseña:");
+
+        lbIdentificacion.setText("Identificación:");
+
+        btLogin1.setBackground(new java.awt.Color(255, 255, 255));
+        btLogin1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btLogin1.setForeground(new java.awt.Color(0, 0, 0));
+        btLogin1.setText("Iniciar Sesión");
+        btLogin1.setBorder(null);
+        btLogin1.setBorderPainted(false);
+        btLogin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLogin1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnBackgroundLayout = new javax.swing.GroupLayout(pnBackground);
+        pnBackground.setLayout(pnBackgroundLayout);
+        pnBackgroundLayout.setHorizontalGroup(
+            pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnBackgroundLayout.createSequentialGroup()
+                        .addComponent(btLogin1, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                        .addGap(316, 316, 316))
+                    .addGroup(pnBackgroundLayout.createSequentialGroup()
+                        .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
+                            .addGroup(pnBackgroundLayout.createSequentialGroup()
+                                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(lbContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                                    .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))
+                                .addGap(220, 220, 220)))
+                        .addGap(96, 96, 96))))
+        );
+        pnBackgroundLayout.setVerticalGroup(
+            pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnBackgroundLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtContrasena)
+                    .addComponent(lbContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(btLogin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(259, 259, 259))
+        );
+
+        pnContent.add(pnBackground, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout pnPrincipalLayout = new javax.swing.GroupLayout(pnPrincipal);
         pnPrincipal.setLayout(pnPrincipalLayout);
@@ -324,27 +399,17 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
             .addGroup(pnPrincipalLayout.createSequentialGroup()
                 .addComponent(pnSidebar, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
-                    .addGroup(pnPrincipalLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(pnPrincipalLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(pnHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+                    .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         pnPrincipalLayout.setVerticalGroup(
             pnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnPrincipalLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(pnSidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
+            .addGroup(pnPrincipalLayout.createSequentialGroup()
+                .addComponent(pnHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2))
         );
 
         pnContent.getAccessibleContext().setAccessibleName("");
@@ -370,7 +435,9 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:
-        initContent(new pnLogin());
+        pnContent.removeAll();
+        pnContent.add(pnBackground);
+        pnContent.repaint();
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void btReportesAerolineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesAerolineasActionPerformed
@@ -381,13 +448,13 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     private void btSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSignUpActionPerformed
         // TODO add your handling code here:
         initContent(new pnRegistro());
-        
+
     }//GEN-LAST:event_btSignUpActionPerformed
 
     private void btEditarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarVuelosActionPerformed
         // TODO add your handling code here:
         initContent(new pnEditarVuelo());
-        
+
     }//GEN-LAST:event_btEditarVuelosActionPerformed
 
     private void btPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPrincipalActionPerformed
@@ -407,7 +474,18 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private void btReportesVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportesVuelosActionPerformed
         // TODO add your handling code here:
-        initContent(new pnReporteVuelos());
+        pnReporteVuelos pnReporteVuelo = new pnReporteVuelos();
+        initContent(pnReporteVuelo);
+        defaultListModel = new DefaultListModel();
+        JList lstVuelo = pnReporteVuelo.getLstVuelos();
+        ArrayList<String> vuelosAeropuerto = aeropuertoUIS.consultarVuelosAeropuertos();
+        for (String str : vuelosAeropuerto) {
+            defaultListModel.addElement(str);
+            defaultListModel.addElement("  ");
+
+        }
+        lstVuelo.setModel(defaultListModel);
+
     }//GEN-LAST:event_btReportesVuelosActionPerformed
 
     private void btReportePasajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReportePasajerosActionPerformed
@@ -415,13 +493,31 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         initContent(new pnReportePasajeros());
     }//GEN-LAST:event_btReportePasajerosActionPerformed
 
+    private void btLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogin1ActionPerformed
+        // TODO add your handling code here:
+        Usuario admin = pnRegistro.getAdmin();
+        String pwd = new String(txtContrasena.getPassword());
+        String contraseña = pwd;
+        Long identificacion = Long.parseLong(txtIdentificacion.getText());
+        boolean login = admin.iniciarSesion(identificacion, contraseña);
+        if (login) {
+            btCancelarVuelo.setEnabled(true);
+            btEditarVuelos.setEnabled(true);
+            btRegistrarVuelo.setEnabled(true);
+            btReportePasajeros.setEnabled(true);
+            btReportesVuelos.setEnabled(true);
+            btReportesAerolineas.setEnabled(true);
+            btLogin.setEnabled(false);
+            btSignUp.setEnabled(false);
+        }
+    }//GEN-LAST:event_btLogin1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         FlatMaterialLighterIJTheme.setup();
-        
-     
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -430,10 +526,16 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         });
     }
 
+    public static Aeropuerto getAeropuertoUIS() {
+        return aeropuertoUIS;
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelarVuelo;
     private javax.swing.JButton btEditarVuelos;
     private javax.swing.JButton btLogin;
+    private javax.swing.JButton btLogin1;
     private javax.swing.JButton btPrincipal;
     private javax.swing.JButton btRegistrarVuelo;
     private javax.swing.JButton btReportePasajeros;
@@ -441,13 +543,18 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     private javax.swing.JButton btReportesVuelos;
     private javax.swing.JButton btSignUp;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lbBienvenida;
+    private javax.swing.JLabel lbContrasena;
     private javax.swing.JLabel lbDate;
+    private javax.swing.JLabel lbIdentificacion;
     private javax.swing.JLabel lbNavtext;
     private javax.swing.JLabel lbNombrePrograma;
+    private javax.swing.JLabel lbTitulo;
+    private javax.swing.JPanel pnBackground;
     private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnHeader;
     private javax.swing.JPanel pnPrincipal;
     private javax.swing.JPanel pnSidebar;
+    private javax.swing.JPasswordField txtContrasena;
+    private javax.swing.JTextField txtIdentificacion;
     // End of variables declaration//GEN-END:variables
 }

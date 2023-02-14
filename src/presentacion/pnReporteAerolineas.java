@@ -40,7 +40,7 @@ public class pnReporteAerolineas extends javax.swing.JPanel {
     
     private void initGraph(){
         DefaultCategoryDataset data = new DefaultCategoryDataset();
-        data.setValue(100, "Aerolinea 1",""); //Cambiar 100 por el metodo de obtener numero vuelos
+        data.setValue(100, "Aerolinea 1",""); //Cambiar 100 por el metodo de obtener numero usuarios
         data.setValue(100, "Aerolinea 2",""); //Cambiar 100 por el metodo de obtener numero vuelos
         
         JFreeChart graficoBarras = ChartFactory.createBarChart("Estadisticas de Vuelos por Aerolinea", "Aerolinea", "Numero de Vuelos", data);
@@ -95,7 +95,7 @@ public class pnReporteAerolineas extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnBackground, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

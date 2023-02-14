@@ -6,6 +6,9 @@
 package presentacion;
 
 import java.awt.Color;
+import logica.Aerolinea;
+import logica.Destino;
+import logica.Vuelo;
 
 /**
  *
@@ -227,6 +230,21 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
 
     private void btRegistroVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistroVueloActionPerformed
         // TODO add your handling code here:
+        Destino destino = new Destino(txtDestino.getText());
+        String avion = txtAvion.getText();
+        int dia = Integer.parseInt(txtDia.getText());
+        int mes = Integer.parseInt(txtMes.getText());
+        int anio = Integer.parseInt(txtAnio.getText());
+        String hora = txtHora.getText();
+        Aerolinea aerolinea;
+        aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+
+        double precio = Integer.parseInt(txtPrecio.getText());
+        int id = Integer.parseInt(txtID.getText());
+
+        Vuelo vuelo = new Vuelo(destino, avion, precio, dia, mes, anio, hora, id);
+        
+        pnRegistro.getAdmin().registrarVuelo(aerolinea, vuelo);
     }//GEN-LAST:event_btRegistroVueloActionPerformed
 
     private void txtAerolineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAerolineaActionPerformed

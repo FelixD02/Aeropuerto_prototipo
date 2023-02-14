@@ -11,17 +11,10 @@ public class Usuario {
     private static int cantidadUsuarios = 0;
 
     public Usuario(String nombre, long documento, String contraseña) {
-        if (cantidadUsuarios < 1){
             this.nombre = nombre;
             this.documento = documento;
             this.contraseña = contraseña;
             Usuario.cantidadUsuarios++;
-        }
-        
-        else {
-            JOptionPane.showMessageDialog(null, "No es posible la creacion de un usuario");
-        }
-
     }
 
     public boolean iniciarSesion(long documento, String contraseña) {
@@ -41,11 +34,11 @@ public class Usuario {
     public ArrayList ListaVuelosAeropuerto(Aeropuerto aeropuerto) {
         return aeropuerto.listaVuelos();
     }
-    
+    /**
     public String informeVuelo(Vuelo vuelo){
         return vuelo.ConsultarVuelo();
     }
-
+**/
 
     public String getNombre() {
         return nombre;
