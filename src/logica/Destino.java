@@ -37,7 +37,7 @@ public class Destino {
 
     @Override
     public String toString() {
-        return "Destino{" + "nombre=" + nombre + ", visitantes=" + visitantes + '}';
+        return "Destino: " + nombre;
     }
     
     

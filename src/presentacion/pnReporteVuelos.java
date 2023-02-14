@@ -28,8 +28,6 @@ public class pnReporteVuelos extends javax.swing.JPanel {
         initComponents();
         InitStyles();
     }
-
-    private DefaultListModel defaultListModel;
     
     private void InitStyles() {
         lbTitulo.putClientProperty("FlatLaf.style", "font: light $h1.regular.font");
@@ -142,18 +140,20 @@ public class pnReporteVuelos extends javax.swing.JPanel {
 
     private void txtIDVueloEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDVueloEspecialActionPerformed
         // TODO add your handling code here:
-        String str = txtIDVueloEspecial.getText();
-        int id = Integer.parseInt(str);
-        Vuelo v = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id);
-  
-        defaultListModel.addElement(v.toString());
-            
-        lstVuelos.setModel(defaultListModel);
+       
         
     }//GEN-LAST:event_txtIDVueloEspecialActionPerformed
 
     private void btReporteEspecialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReporteEspecialActionPerformed
         // TODO add your handling code here:
+        DefaultListModel model = vtSistemaAeoropuerto.getDefaultListModel();
+        model.removeAllElements();
+        String str = txtIDVueloEspecial.getText();
+        int id = Integer.parseInt(str);
+        Vuelo v = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(id);
+        model.addElement(v.ConsultarVuelo());
+        lstVuelos.setModel(model);
+
     }//GEN-LAST:event_btReporteEspecialActionPerformed
 
     public JButton getBtReporteEspecial() {

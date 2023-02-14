@@ -32,7 +32,8 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
         lbID.setForeground(Color.black);
         lbAerolinea.putClientProperty("FlatLaf.styleClass", "large");
         lbAerolinea.setForeground(Color.black);
-
+        lbInstruccionesCancelacionVuelo.putClientProperty("FlatLaf.styleClass", "large");
+        lbInstruccionesCancelacionVuelo.setForeground(Color.black);
     }
 
     /**
@@ -49,6 +50,7 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
         txtID = new javax.swing.JTextField();
         lbAerolinea = new javax.swing.JLabel();
         txtAerolinea = new javax.swing.JTextField();
+        lbInstruccionesCancelacionVuelo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(750, 430));
@@ -60,9 +62,7 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
         lbTitulo.setText("Cancelación de un Vuelo");
 
-        btCancelarVuelo.setBackground(new java.awt.Color(255, 255, 255));
         btCancelarVuelo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btCancelarVuelo.setForeground(new java.awt.Color(0, 0, 0));
         btCancelarVuelo.setText("Cancelar");
         btCancelarVuelo.setBorder(null);
         btCancelarVuelo.setBorderPainted(false);
@@ -72,42 +72,46 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
             }
         });
 
-        lbID.setText("Id:");
+        lbID.setText("ID vuelo:");
 
-        lbAerolinea.setText("Aerolinea:");
+        lbAerolinea.setText("ID Aerolinea:");
+
+        lbInstruccionesCancelacionVuelo.setText("Para Cancelar un Vuelo ingrese el ID de la Aerolinea y el Vuelo");
 
         javax.swing.GroupLayout pnBackgroundLayout = new javax.swing.GroupLayout(pnBackground);
         pnBackground.setLayout(pnBackgroundLayout);
         pnBackgroundLayout.setHorizontalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnBackgroundLayout.createSequentialGroup()
+                        .addComponent(lbInstruccionesCancelacionVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
                         .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
                         .addGap(96, 96, 96))
                     .addGroup(pnBackgroundLayout.createSequentialGroup()
                         .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBackgroundLayout.createSequentialGroup()
-                                .addComponent(lbAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                .addComponent(lbAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(pnBackgroundLayout.createSequentialGroup()
-                                .addComponent(lbID, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                .addComponent(lbID, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                                 .addGap(12, 12, 12)))
                         .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtID)
-                            .addComponent(txtAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
-                        .addGap(471, 471, 471))))
-            .addGroup(pnBackgroundLayout.createSequentialGroup()
-                .addComponent(btCancelarVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(471, 471, 471))
+                            .addComponent(txtAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)))))
         );
         pnBackgroundLayout.setVerticalGroup(
             pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbInstruccionesCancelacionVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAerolinea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtAerolinea))
@@ -117,7 +121,7 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
                     .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(btCancelarVuelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(296, 296, 296))
+                .addGap(255, 255, 255))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -138,8 +142,10 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
     private void btCancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarVueloActionPerformed
         // TODO add your handling code here:
         try {
-            Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+            Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(Integer.parseInt(txtAerolinea.getText()));
             Vuelo vuelo = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(Integer.parseInt(txtID.getText()));
+            
+            
             pnRegistro.getAdmin().cancelarVuelo(aerolinea, vuelo);
             JOptionPane.showMessageDialog(pnBackground, "Vuelo Cancelado");
             txtAerolinea.setText("");
@@ -156,6 +162,7 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
     private javax.swing.JButton btCancelarVuelo;
     private javax.swing.JLabel lbAerolinea;
     private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbInstruccionesCancelacionVuelo;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JPanel pnBackground;
     private javax.swing.JTextField txtAerolinea;

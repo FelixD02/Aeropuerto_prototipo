@@ -40,10 +40,10 @@ public class pnReporteAerolineas extends javax.swing.JPanel {
     
     private void initGraph(){
         DefaultCategoryDataset data = new DefaultCategoryDataset();
-        data.setValue(100, "Aerolinea 1",""); //Cambiar 100 por el metodo de obtener numero usuarios
-        data.setValue(100, "Aerolinea 2",""); //Cambiar 100 por el metodo de obtener numero vuelos
+        data.setValue(vtSistemaAeoropuerto.getAeropuertoUIS().getAerolineas().get(0).totalPasajesVendidos(), vtSistemaAeoropuerto.getAeropuertoUIS().getAerolineas().get(0).getNombre(),"");
+        data.setValue(vtSistemaAeoropuerto.getAeropuertoUIS().getAerolineas().get(1).totalPasajesVendidos(), vtSistemaAeoropuerto.getAeropuertoUIS().getAerolineas().get(1).getNombre(),""); 
         
-        JFreeChart graficoBarras = ChartFactory.createBarChart("Estadisticas de Vuelos por Aerolinea", "Aerolinea", "Numero de Vuelos", data);
+        JFreeChart graficoBarras = ChartFactory.createBarChart("Estadisticas de Vuelos por Aerolinea", "Aerolinea", "Numero de Pasajes Vendidos", data);
         
         CategoryPlot plot = (CategoryPlot) graficoBarras.getPlot();
         plot.setBackgroundPaint( Color.WHITE );

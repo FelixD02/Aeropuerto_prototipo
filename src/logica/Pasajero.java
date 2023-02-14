@@ -55,5 +55,12 @@ public class Pasajero{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Pasajero{" + "edad=" + edad + ", nacionalidad=" + nacionalidad + ", sexo=" + sexo + ", documento=" + documento + ", nombre=" + nombre + '}';
+    }
+    
+    
     
 }

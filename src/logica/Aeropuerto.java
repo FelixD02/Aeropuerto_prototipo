@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.*;
+import persistencia.registro;
 
 public class Aeropuerto {
 
@@ -21,8 +22,12 @@ public class Aeropuerto {
         cantidadAerolineas++;
     }
 
-    public void agregarDestinos(Destino destino) {
-        destinos.add(destino);
+    public void guardarDestinos() {
+        for (Aerolinea aerolinea : aerolineas) {
+            for (Vuelo vuelo : aerolinea.getVuelos()) {
+                destinos.add(vuelo.getDestino());
+            }
+        }
     }
 
     public ArrayList listaVuelos() {
@@ -32,7 +37,7 @@ public class Aeropuerto {
         }
         return vuelosAeropuerto;
     }
-    
+
     public Vuelo seleccionarVuelo(int id) {
         Vuelo x = new Vuelo();
         for (Aerolinea aerolinea : aerolineas) {
@@ -44,15 +49,15 @@ public class Aeropuerto {
         }
         return x;
     }
-    
-    public ArrayList<String> consultarVuelosAeropuertos(){
-        ArrayList<String> vuelosConsultados = new ArrayList<String>();
-        for(Aerolinea a: aerolineas){
-            for(Vuelo v: a.getVuelos()){
-                vuelosConsultados.add(a.getNombre() + " " + v.ConsultarVuelo()); 
+
+    public ArrayList<String> consultarVuelosAeropuertos() {
+        ArrayList<String> vuelosConsultados = new ArrayList<>();
+        for (Aerolinea a : aerolineas) {
+            for (Vuelo v : a.getVuelos()) {
+                vuelosConsultados.add("Aerolinea:  " + a.getNombre() + " " + v.ConsultarVuelo());
             }
-        } 
-        
+        }
+
         return vuelosConsultados;
     }
 
@@ -88,58 +93,59 @@ public class Aeropuerto {
         destinosMasVisitados.add(top3);
         return destinosMasVisitados;
     }
-    
-    public Aerolinea aerolineaMasUsada(){
+
+    public Aerolinea aerolineaMasUsada() { //NO SE USA
         Aerolinea aerolineaMasUsada = new Aerolinea();
         int pasajesVendidos = 0;
-        for(Aerolinea aerolinea : aerolineas){
-            if(aerolinea.totalPasajesVendidos() > pasajesVendidos ){
+        for (Aerolinea aerolinea : aerolineas) {
+            if (aerolinea.totalPasajesVendidos() > pasajesVendidos) {
                 pasajesVendidos = aerolinea.totalPasajesVendidos();
                 aerolineaMasUsada = aerolinea;
             }
         }
         return aerolineaMasUsada;
     }
-    
-    public Aerolinea seleccionarAerolinea(String str){
+
+    public Aerolinea seleccionarAerolinea(int idAerolinea) {
         Aerolinea aerolineaSeleccionada = new Aerolinea();
-        for(Aerolinea aerolinea : aerolineas){
-            if(aerolinea.getNombre().equalsIgnoreCase(str)){
+        for (Aerolinea aerolinea : aerolineas) {
+            if (aerolinea.getId() == idAerolinea) {
                 aerolineaSeleccionada = aerolinea;
             }
         }
         return aerolineaSeleccionada;
     }
-    
-    public String pasajerosPorEdad(){
-        String  pasajerosPorEdad;
+
+    public int[] pasajerosPorEdad() {
+        int[] pasajerosPorEdad = new int[2];
         int menores = 0, mayores = 0;
-        for(Aerolinea aerolinea : aerolineas){
-            for(Vuelo vuelo : aerolinea.getVuelos()){
-                for(Pasajero pasajero : vuelo.getPasajeros()){
-                    if(pasajero.getEdad()<18){
+        for (Aerolinea aerolinea : aerolineas) {
+            for (Vuelo vuelo : aerolinea.getVuelos()) {
+                for (Pasajero pasajero : vuelo.getPasajeros()) {
+                    if (pasajero.getEdad() < 18) {
                         menores++;
                     }
-                    if(pasajero.getEdad()>=18){
+                    if (pasajero.getEdad() >= 18) {
                         mayores++;
                     }
                 }
             }
         }
-        pasajerosPorEdad = "Menores: " + menores + "  Mayores: " + mayores;
+        pasajerosPorEdad[0] = mayores;
+        pasajerosPorEdad[1] = menores;
         return pasajerosPorEdad;
     }
-    
-    public String pasajerosPorNacionalidad(){
+
+    public String pasajerosPorNacionalidad() {
         String pasajerosPorNacionalidad;
         int colombianos = 0, extranjeros = 0;
-        for(Aerolinea aerolinea : aerolineas){
-            for(Vuelo vuelo : aerolinea.getVuelos()){
-                for(Pasajero pasajero : vuelo.getPasajeros()){
-                    if(pasajero.getNacionalidad()==Nacionalidad.Colombiana){
+        for (Aerolinea aerolinea : aerolineas) {
+            for (Vuelo vuelo : aerolinea.getVuelos()) {
+                for (Pasajero pasajero : vuelo.getPasajeros()) {
+                    if (pasajero.getNacionalidad() == Nacionalidad.Colombiana) {
                         colombianos++;
                     }
-                    if(pasajero.getNacionalidad()==Nacionalidad.Extranjera){
+                    if (pasajero.getNacionalidad() == Nacionalidad.Extranjera) {
                         extranjeros++;
                     }
                 }
@@ -148,17 +154,17 @@ public class Aeropuerto {
         pasajerosPorNacionalidad = "Colombianos: " + colombianos + "  Extranjeros: " + extranjeros;
         return pasajerosPorNacionalidad;
     }
-    
-    public String pasajerosPorSexo(){
+
+    public String pasajerosPorSexo() {
         String pasajerosPorSexo;
-        int masculino=0, femenino=0;
-        for(Aerolinea aerolinea : aerolineas){
-            for(Vuelo vuelo : aerolinea.getVuelos()){
-                for(Pasajero pasajero : vuelo.getPasajeros()){
-                    if(pasajero.getSexo()==Sexo.Masculino){
+        int masculino = 0, femenino = 0;
+        for (Aerolinea aerolinea : aerolineas) {
+            for (Vuelo vuelo : aerolinea.getVuelos()) {
+                for (Pasajero pasajero : vuelo.getPasajeros()) {
+                    if (pasajero.getSexo() == Sexo.Masculino) {
                         masculino++;
                     }
-                    if(pasajero.getSexo()==Sexo.Femenino){
+                    if (pasajero.getSexo() == Sexo.Femenino) {
                         femenino++;
                     }
                 }
@@ -166,6 +172,18 @@ public class Aeropuerto {
         }
         pasajerosPorSexo = "Masculinos: " + masculino + "  Femenino: " + femenino;
         return pasajerosPorSexo;
+    }
+
+    public Aerolinea buscarAerolinea(int id) {
+        Aerolinea aerolineaEncontrada = new Aerolinea();
+        for (Aerolinea aerolinea : aerolineas) {
+            for (Vuelo vuelo : aerolinea.getVuelos()) {
+                if (vuelo.getId() == id) {
+                    aerolineaEncontrada = aerolinea;
+                }
+            }
+        }
+        return aerolineaEncontrada;
     }
     
     public String getNombre() {
@@ -200,4 +218,26 @@ public class Aeropuerto {
         this.destinos = destinos;
     }
     
+      /*public static void main(String[] args){
+        
+        Aeropuerto aeropuertoUIS = new Aeropuerto("Aeropuerto UIS");
+        registro registro = new registro();
+        Aerolinea aerolinea1 = new Aerolinea("American Airlines",100);
+        Aerolinea aerolinea2 = new Aerolinea("Turkish Airlines",200);
+        Aerolinea aerolinea3 = new Aerolinea("United Airlines",300);
+        
+        aerolinea1.setVuelos(registro.lecturaVuelos(100));
+        aerolinea2.setVuelos(registro.lecturaVuelos(200));
+        aerolinea3.setVuelos(registro.lecturaVuelos(300));
+        
+        aeropuertoUIS.agregarAerolineas(aerolinea1);
+        aeropuertoUIS.agregarAerolineas(aerolinea2);
+        aeropuertoUIS.agregarAerolineas(aerolinea3); 
+        
+        //aerolinea1.getVuelos().get(0).imprimir();
+        
+        
+          System.out.println(aeropuertoUIS.pasajerosPorEdad()[0] + "  y  " + aeropuertoUIS.pasajerosPorEdad()[1]);
+    } */
+
 }

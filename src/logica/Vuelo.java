@@ -44,7 +44,7 @@ public class Vuelo {
     }
 
     public String ConsultarVuelo() {
-        return destino + " " + dia + "/" + mes + "/" + año + " " + "ID " + id + "\n";
+        return destino + " Fecha: " + dia + "/" + mes + "/" + año + " " + "ID: " + id + "\n";
     }
   
     

@@ -240,7 +240,7 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
             int anio = Integer.parseInt(txtAnio.getText());
             String hora = txtHora.getText();
             Aerolinea aerolinea;
-            aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+            aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(Integer.parseInt(txtAerolinea.getText()));
 
             double precio = Integer.parseInt(txtPrecio.getText());
             int id = Integer.parseInt(txtID.getText());

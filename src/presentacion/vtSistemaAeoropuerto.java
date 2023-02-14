@@ -14,8 +14,8 @@ import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import logica.Aeropuerto;
-import logica.Usuario;
+import logica.*;
+import persistencia.*;
 
 /**
  *
@@ -24,8 +24,25 @@ import logica.Usuario;
 public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private static Aeropuerto aeropuertoUIS = new Aeropuerto("Aeropuerto UIS");
-    private DefaultListModel defaultListModel;
+    private static DefaultListModel defaultListModel;
+    private main main;
+    private static ArrayList<String> vuelosAeropuerto;
 
+    public static DefaultListModel getDefaultListModel() {
+        return defaultListModel;
+    }
+
+    public static ArrayList<String> getVuelosAeropuerto() {
+        return vuelosAeropuerto;
+    }
+
+    public static void setVuelosAeropuerto(ArrayList<String> vuelosAeropuerto) {
+        vtSistemaAeoropuerto.vuelosAeropuerto = vuelosAeropuerto;
+    }
+    
+    
+   
+    
     /**
      * Creates new form vtSistemaAeoropuerto
      */
@@ -34,6 +51,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         initStyles();
         setDate();
         initContent(new pnPrincipal());
+        vuelosAeropuerto = aeropuertoUIS.consultarVuelosAeropuertos();
 
     }
 
@@ -478,7 +496,7 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
         initContent(pnReporteVuelo);
         defaultListModel = new DefaultListModel();
         JList lstVuelo = pnReporteVuelo.getLstVuelos();
-        ArrayList<String> vuelosAeropuerto = aeropuertoUIS.consultarVuelosAeropuertos();
+        
         for (String str : vuelosAeropuerto) {
             defaultListModel.addElement(str);
             defaultListModel.addElement("  ");
@@ -509,6 +527,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
             btReportesAerolineas.setEnabled(true);
             btLogin.setEnabled(false);
             btSignUp.setEnabled(false);
+            main = new main();
+            main.iniciar();
         }
     }//GEN-LAST:event_btLogin1ActionPerformed
 
@@ -529,8 +549,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     public static Aeropuerto getAeropuertoUIS() {
         return aeropuertoUIS;
     }
-
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelarVuelo;
     private javax.swing.JButton btEditarVuelos;
