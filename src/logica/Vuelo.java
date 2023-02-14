@@ -16,9 +16,10 @@ public class Vuelo {
     private int id;
     private final registro registroPasajeros;
 
-    public Vuelo(){
+    public Vuelo() {
         registroPasajeros = new registro();
     }
+
     public Vuelo(Destino destino, String avion, double precio, int dia, int mes, int año, String hora, int id) {
         this.destino = destino;
         this.avion = avion;
@@ -33,7 +34,7 @@ public class Vuelo {
 
     }
 
-    public void registrarPasajeros(Pasajero pasajero) {
+    public void registrarPasajeros(Pasajero pasajero) { //ESTE NO SE USA
         try {
             pasajeros.add(pasajero);
             registroPasajeros.actualizarPasajeros(pasajeros, id);
@@ -46,8 +47,6 @@ public class Vuelo {
     public String ConsultarVuelo() {
         return destino + " " + dia + "/" + mes + "/" + año + " " + "ID " + id + "\n";
     }
-  
-    
 
     public Destino getDestino() {
         return destino;
@@ -72,8 +71,6 @@ public class Vuelo {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
-   
 
     public int getAño() {
         return año;
@@ -106,5 +103,34 @@ public class Vuelo {
     public void setPasajeros(ArrayList<Pasajero> pasajeros) {
         this.pasajeros = pasajeros;
     }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+    
+    public void imprimir(){
+        for(Pasajero pasajero : pasajeros){
+            System.out.println(pasajero.toString());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Vuelo{" + "destino=" + destino + ", avion=" + avion + ", dia=" + dia + ", mes=" + mes + ", a\u00f1o=" + año + ", hora=" + hora + ", precio=" + precio + ", id=" + id + '}';
+    }
+    
+    
 
 }

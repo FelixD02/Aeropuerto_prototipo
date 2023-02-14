@@ -6,6 +6,7 @@
 package presentacion;
 
 import java.awt.Color;
+import logica.*;
 
 /**
  *
@@ -89,9 +90,7 @@ public class pnEditarVuelo extends javax.swing.JPanel {
 
         lbDia.setText("Dia:");
 
-        btEdicionVuelo.setBackground(new java.awt.Color(255, 255, 255));
         btEdicionVuelo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btEdicionVuelo.setForeground(new java.awt.Color(0, 0, 0));
         btEdicionVuelo.setText("Editar");
         btEdicionVuelo.setBorder(null);
         btEdicionVuelo.setBorderPainted(false);
@@ -109,7 +108,7 @@ public class pnEditarVuelo extends javax.swing.JPanel {
 
         lbPrecio.setText("Precio:");
 
-        lbID.setText("Id :");
+        lbID.setText("ID :");
 
         lbInstrucciones.setText("Ingrese el ID del Vuelo a Editar y las Propiedades que desea cambiar:");
 
@@ -216,7 +215,20 @@ public class pnEditarVuelo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btEdicionVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEdicionVueloActionPerformed
-        // TODO add your handling code here:
+        
+        /*int id = Integer.parseInt(txtID.getText());
+        int dia = Integer.parseInt(txtDia.getText());
+        int mes = Integer.parseInt(txtMes.getText());
+        int año = Integer.parseInt(txtAnio.getText());
+        String hora = txtHora.getText();
+        double precio = Double.parseDouble(txtPrecio.getText());
+        Destino destino = new Destino(txtDestino.getText());
+        Aerolinea aerolinea;
+        Vuelo vuelo;
+        
+        aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().buscarAerolinea(id);
+        vuelo = new Vuelo(destino, **HACE FALTA EL AVION**, precio, dia, mes, año, hora, id);   */
+        
     }//GEN-LAST:event_btEdicionVueloActionPerformed
 
     private void txtDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinoActionPerformed

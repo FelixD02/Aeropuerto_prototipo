@@ -93,9 +93,7 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
 
         lbDia.setText("Dia:");
 
-        btRegistroVuelo.setBackground(new java.awt.Color(255, 255, 255));
         btRegistroVuelo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btRegistroVuelo.setForeground(new java.awt.Color(0, 0, 0));
         btRegistroVuelo.setText("Registrar");
         btRegistroVuelo.setBorder(null);
         btRegistroVuelo.setBorderPainted(false);
@@ -113,9 +111,9 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
 
         lbPrecio.setText("Precio:");
 
-        lbID.setText("Id:");
+        lbID.setText("ID vuelo:");
 
-        lbAerolinea.setText("Aerolinea:");
+        lbAerolinea.setText("ID Aerolinea:");
 
         txtAerolinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,7 +235,7 @@ public class pnRegistrarVuelo extends javax.swing.JPanel {
         int anio = Integer.parseInt(txtAnio.getText());
         String hora = txtHora.getText();
         Aerolinea aerolinea;
-        aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+        aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(Integer.parseInt(txtAerolinea.getText()));
 
         double precio = Integer.parseInt(txtPrecio.getText());
         int id = Integer.parseInt(txtID.getText());

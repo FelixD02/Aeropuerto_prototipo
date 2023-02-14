@@ -14,8 +14,8 @@ import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import logica.Aeropuerto;
-import logica.Usuario;
+import logica.*;
+import persistencia.*;
 
 /**
  *
@@ -25,7 +25,10 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
 
     private static Aeropuerto aeropuertoUIS = new Aeropuerto("Aeropuerto UIS");
     private DefaultListModel defaultListModel;
-
+    private main main;
+    
+   
+    
     /**
      * Creates new form vtSistemaAeoropuerto
      */
@@ -509,6 +512,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
             btReportesAerolineas.setEnabled(true);
             btLogin.setEnabled(false);
             btSignUp.setEnabled(false);
+            main = new main();
+            main.iniciar();
         }
     }//GEN-LAST:event_btLogin1ActionPerformed
 
@@ -529,8 +534,8 @@ public class vtSistemaAeoropuerto extends javax.swing.JFrame {
     public static Aeropuerto getAeropuertoUIS() {
         return aeropuertoUIS;
     }
-
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelarVuelo;
     private javax.swing.JButton btEditarVuelos;

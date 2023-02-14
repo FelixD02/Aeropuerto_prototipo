@@ -58,9 +58,7 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
         lbTitulo.setText("Cancelación de un Vuelo");
 
-        btCancelarVuelo.setBackground(new java.awt.Color(255, 255, 255));
         btCancelarVuelo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btCancelarVuelo.setForeground(new java.awt.Color(0, 0, 0));
         btCancelarVuelo.setText("Cancelar");
         btCancelarVuelo.setBorder(null);
         btCancelarVuelo.setBorderPainted(false);
@@ -70,9 +68,9 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
             }
         });
 
-        lbID.setText("Id:");
+        lbID.setText("ID vuelo:");
 
-        lbAerolinea.setText("Aerolinea:");
+        lbAerolinea.setText("ID Aerolinea:");
 
         javax.swing.GroupLayout pnBackgroundLayout = new javax.swing.GroupLayout(pnBackground);
         pnBackground.setLayout(pnBackgroundLayout);
@@ -135,7 +133,7 @@ public class pnCancelarVuelo extends javax.swing.JPanel {
 
     private void btCancelarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarVueloActionPerformed
         // TODO add your handling code here:
-        Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(txtAerolinea.getText());
+        Aerolinea aerolinea = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarAerolinea(Integer.parseInt(txtAerolinea.getText()));
         Vuelo vuelo = vtSistemaAeoropuerto.getAeropuertoUIS().seleccionarVuelo(Integer.parseInt(txtID.getText()));
         pnRegistro.getAdmin().cancelarVuelo(aerolinea, vuelo);
         txtAerolinea.setText("");

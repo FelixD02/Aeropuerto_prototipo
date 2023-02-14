@@ -40,8 +40,8 @@ public class pnReportePasajeros extends javax.swing.JPanel {
     
     private void initGraph(){
         DefaultCategoryDataset data = new DefaultCategoryDataset();
-        data.setValue(100, "Mayores de Edad",""); //Cambiar 100 por el metodo de obtener numero mayores de edad
-        data.setValue(100, "Menores de Edad",""); //Cambiar 100 por el metodo de obtener numero menores de edad
+        data.setValue(vtSistemaAeoropuerto.getAeropuertoUIS().pasajerosPorEdad()[0], "Mayores de Edad",""); //Cambiar 100 por el metodo de obtener numero mayores de edad
+        data.setValue(vtSistemaAeoropuerto.getAeropuertoUIS().pasajerosPorEdad()[1], "Menores de Edad",""); //Cambiar 100 por el metodo de obtener numero menores de edad
         
         JFreeChart graficoBarras = ChartFactory.createBarChart("Estadisticas de Edad", "Pasajeros", "Numero de Pasajersos", data);
         

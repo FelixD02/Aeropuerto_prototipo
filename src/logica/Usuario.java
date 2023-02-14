@@ -2,6 +2,7 @@ package logica;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import persistencia.*;
 
 public class Usuario {
 
@@ -25,10 +26,20 @@ public class Usuario {
 
     public void registrarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
         aerolinea.registrarVuelo(vuelo);
+        registro registro = new registro();
+        registro.actualizarVuelos(aerolinea);
     }
 
     public void cancelarVuelo(Aerolinea aerolinea, Vuelo vuelo) {
         aerolinea.cancelarVuelo(vuelo);
+        registro borrar = new registro();
+        borrar.actualizarVuelos(aerolinea);
+    }
+    
+    public void editarVuelo(Aerolinea aerolinea,  Vuelo vuelo){
+        aerolinea.editarVuelo(vuelo);
+        registro editar = new registro();
+        editar.actualizarVuelos(aerolinea);
     }
 
     public ArrayList ListaVuelosAeropuerto(Aeropuerto aeropuerto) {
